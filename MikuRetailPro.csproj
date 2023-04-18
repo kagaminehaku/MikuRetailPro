@@ -58,6 +58,13 @@
     <Compile Include="AdminCtrlPanel.Designer.cs">
       <DependentUpon>AdminCtrlPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminFirstTimeSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFirstTimeSetup.Designer.cs">
+      <DependentUpon>AdminFirstTimeSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleClass\AdminOwner.cs" />
     <Compile Include="StaffWorkPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminCtrlPanel.resx">
       <DependentUpon>AdminCtrlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminFirstTimeSetup.resx">
+      <DependentUpon>AdminFirstTimeSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsrLoginUI.resx">
       <DependentUpon>UsrLoginUI.cs</DependentUpon>
@@ -102,6 +112,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Admin.txt" />
+    <Content Include="Data\AdminOwner.txt" />
+    <Content Include="Data\Cashier.txt" />
+    <Content Include="Data\PackingStaff.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Security\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

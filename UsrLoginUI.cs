@@ -22,5 +22,11 @@ namespace MikuRetailPro
             this.Close();
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminOwnerSetup adminFirstTimeSetup = new AdminOwnerSetup();    
+            adminFirstTimeSetup.ShowDialog();
+        }
     }
 }
