@@ -1,4 +1,7 @@
-﻿namespace MikuRetailPro
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace MikuRetailPro
 {
     partial class UsrLoginUI
     {
@@ -29,31 +32,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsrLoginUI));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.usntxb = new System.Windows.Forms.TextBox();
+            this.pwdtxb = new System.Windows.Forms.TextBox();
             this.usrusnlabel = new System.Windows.Forms.Label();
             this.usrpwdlabel = new System.Windows.Forms.Label();
             this.loginusrbtn = new System.Windows.Forms.Button();
             this.quitusrbtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.setupbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // usntxb
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 175);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(452, 20);
-            this.textBox1.TabIndex = 0;
+            this.usntxb.Location = new System.Drawing.Point(171, 175);
+            this.usntxb.Name = "usntxb";
+            this.usntxb.Size = new System.Drawing.Size(452, 20);
+            this.usntxb.TabIndex = 0;
             // 
-            // textBox2
+            // pwdtxb
             // 
-            this.textBox2.Location = new System.Drawing.Point(171, 225);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '●';
-            this.textBox2.Size = new System.Drawing.Size(452, 20);
-            this.textBox2.TabIndex = 1;
+            this.pwdtxb.Location = new System.Drawing.Point(171, 225);
+            this.pwdtxb.Name = "pwdtxb";
+            this.pwdtxb.PasswordChar = '●';
+            this.pwdtxb.Size = new System.Drawing.Size(452, 20);
+            this.pwdtxb.TabIndex = 1;
             // 
             // usrusnlabel
             // 
@@ -81,6 +83,7 @@
             this.loginusrbtn.TabIndex = 4;
             this.loginusrbtn.Text = "Login";
             this.loginusrbtn.UseVisualStyleBackColor = true;
+            this.loginusrbtn.Click += new System.EventHandler(this.loginusrbtn_Click);
             // 
             // quitusrbtn
             // 
@@ -94,6 +97,8 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(245, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -102,29 +107,18 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // setupbtn
-            // 
-            this.setupbtn.Location = new System.Drawing.Point(12, 415);
-            this.setupbtn.Name = "setupbtn";
-            this.setupbtn.Size = new System.Drawing.Size(75, 23);
-            this.setupbtn.TabIndex = 8;
-            this.setupbtn.Text = "Setup";
-            this.setupbtn.UseVisualStyleBackColor = true;
-            this.setupbtn.Click += new System.EventHandler(this.button1_Click);
-            // 
             // UsrLoginUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.setupbtn);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.quitusrbtn);
             this.Controls.Add(this.loginusrbtn);
             this.Controls.Add(this.usrpwdlabel);
             this.Controls.Add(this.usrusnlabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.pwdtxb);
+            this.Controls.Add(this.usntxb);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UsrLoginUI";
             this.Text = "NovaRetail";
@@ -136,14 +130,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox usntxb;
+        private System.Windows.Forms.TextBox pwdtxb;
         private System.Windows.Forms.Label usrusnlabel;
         private System.Windows.Forms.Label usrpwdlabel;
         private System.Windows.Forms.Button loginusrbtn;
         private System.Windows.Forms.Button quitusrbtn;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button setupbtn;
     }
 }
 

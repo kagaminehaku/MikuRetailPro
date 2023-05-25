@@ -52,44 +52,40 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminCtrlPanel.cs">
+    <Compile Include="%28Lv.2%29AdminCtrlPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminCtrlPanel.Designer.cs">
-      <DependentUpon>AdminCtrlPanel.cs</DependentUpon>
+    <Compile Include="%28Lv.2%29AdminCtrlPanel.Designer.cs">
+      <DependentUpon>%28Lv.2%29AdminCtrlPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminFirstTimeSetup.cs">
+    <Compile Include="%28Lv.2%29OfflineRetailStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminFirstTimeSetup.Designer.cs">
-      <DependentUpon>AdminFirstTimeSetup.cs</DependentUpon>
+    <Compile Include="%28Lv.2%29OfflineRetailStaff.Designer.cs">
+      <DependentUpon>%28Lv.2%29OfflineRetailStaff.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleClass\AdminOwner.cs" />
-    <Compile Include="StaffWorkPanel.cs">
+    <Compile Include="%28Lv.1%29UsrLoginUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StaffWorkPanel.Designer.cs">
-      <DependentUpon>StaffWorkPanel.cs</DependentUpon>
+    <Compile Include="%28Lv.1%29UsrLoginUI.Designer.cs">
+      <DependentUpon>%28Lv.1%29UsrLoginUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsrLoginUI.cs">
+    <Compile Include="%28Lv.2%29Manager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsrLoginUI.Designer.cs">
-      <DependentUpon>UsrLoginUI.cs</DependentUpon>
+    <Compile Include="%28Lv.2%29Manager.Designer.cs">
+      <DependentUpon>%28Lv.2%29Manager.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminCtrlPanel.resx">
-      <DependentUpon>AdminCtrlPanel.cs</DependentUpon>
+    <EmbeddedResource Include="%28Lv.2%29AdminCtrlPanel.resx">
+      <DependentUpon>%28Lv.2%29AdminCtrlPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminFirstTimeSetup.resx">
-      <DependentUpon>AdminFirstTimeSetup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UsrLoginUI.resx">
-      <DependentUpon>UsrLoginUI.cs</DependentUpon>
+    <EmbeddedResource Include="%28Lv.1%29UsrLoginUI.resx">
+      <DependentUpon>%28Lv.1%29UsrLoginUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -113,14 +109,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Data\Admin.txt" />
-    <Content Include="Data\AdminOwner.txt" />
-    <Content Include="Data\Cashier.txt" />
-    <Content Include="Data\PackingStaff.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Security\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
