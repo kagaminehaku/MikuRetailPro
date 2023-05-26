@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MikuRetailPro
 {
-    public partial class Form3 : Form
+    public partial class WHS : Form
     {
-        public Form3()
+        public WHS()
         {
             InitializeComponent();
         }

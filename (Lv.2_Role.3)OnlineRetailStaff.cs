@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MikuRetailPro
 {
-    public partial class Form2 : Form
+    public partial class OnRS : Form
     {
-        public Form2()
+        public OnRS()
         {
             InitializeComponent();
         }

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace MikuRetailPro
 {
-    partial class AboutBox1 : Form
+    partial class AboutMikuRetailPro : Form
     {
-        public AboutBox1()
+        public AboutMikuRetailPro()
         {
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);

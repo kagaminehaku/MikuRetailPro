@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MikuRetailPro
 {
-    public partial class StaffWorkPanel : Form
+    public partial class OffRS : Form
     {
-        public StaffWorkPanel()
+        public OffRS()
         {
             InitializeComponent();
         }

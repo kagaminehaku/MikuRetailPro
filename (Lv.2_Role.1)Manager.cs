@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MikuRetailPro
 {
-    public partial class Form1 : Form
+    public partial class MGR : Form
     {
-        public Form1()
+        public MGR()
         {
             InitializeComponent();
         }

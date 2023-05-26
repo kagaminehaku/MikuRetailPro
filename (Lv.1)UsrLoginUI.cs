@@ -18,6 +18,8 @@ namespace MikuRetailPro
         public UsrLoginUI()
         {
             InitializeComponent();
+            usrusnlabel.Parent = this;
+            usrusnlabel.BackColor = Color.Transparent;
         }
 
         private void quitusrbtn_Click(object sender, EventArgs e)
@@ -40,30 +42,50 @@ namespace MikuRetailPro
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password);
                     SqlDataReader reader = command.ExecuteReader();
+                    usntxb.Text = "";  
+                    pwdtxb.Text = ""; 
                     if (reader.Read())
                     {
                         string role = reader["role"].ToString();
                         if (role == "0") 
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
+                            this.Hide();
                             ACP acp = new ACP();
                             acp.ShowDialog();
+                            this.Show();
                         }
                         if (role == "1") 
                         {
-                            MessageBox.Show("Login successful! No ADMIN");
+                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            this.Hide();
+                            MGR mgr = new MGR();
+                            mgr.ShowDialog();
+                            this.Show();
                         }
                         if (role == "2")
                         {
-                            MessageBox.Show("Login successful! No ADMIN");
+                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            this.Hide();
+                            OffRS offrs = new OffRS();
+                            offrs.ShowDialog();
+                            this.Show();
                         }
                         if (role == "3")
                         {
-                            MessageBox.Show("Login successful! No ADMIN");
+                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            this.Hide();
+                            OnRS onrs = new OnRS();
+                            onrs.ShowDialog();
+                            this.Show();
                         }
                         if (role == "4")
                         {
-                            MessageBox.Show("Login successful! No ADMIN");
+                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            this.Hide();
+                            WHS whs = new WHS();
+                            whs.ShowDialog();
+                            this.Show();
                         }
                     }
                     else

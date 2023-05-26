@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
+    <Compile Include="AboutMikuRetailPro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <Compile Include="AboutMikuRetailPro.Designer.cs">
+      <DependentUpon>AboutMikuRetailPro.cs</DependentUpon>
     </Compile>
     <Compile Include="%28Lv.2_Role.0%29AdminCtrlPanel.cs">
       <SubType>Form</SubType>
@@ -90,8 +90,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
+    <EmbeddedResource Include="%28Lv.2_Role.1%29Manager.resx">
+      <DependentUpon>%28Lv.2_Role.1%29Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="%28Lv.2_Role.2%29OfflineRetailStaff.resx">
+      <DependentUpon>%28Lv.2_Role.2%29OfflineRetailStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="%28Lv.2_Role.3%29OnlineRetailStaff.resx">
+      <DependentUpon>%28Lv.2_Role.3%29OnlineRetailStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="%28Lv.2_Role.4%29WarehouseStaff.resx">
+      <DependentUpon>%28Lv.2_Role.4%29WarehouseStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutMikuRetailPro.resx">
+      <DependentUpon>AboutMikuRetailPro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="%28Lv.2_Role.0%29AdminCtrlPanel.resx">
       <DependentUpon>%28Lv.2_Role.0%29AdminCtrlPanel.cs</DependentUpon>
