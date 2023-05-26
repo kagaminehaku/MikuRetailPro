@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MikuRetailPro
 {
-    public partial class Usrreg : Form
+    public partial class ACP : Form
     {
-        public Usrreg()
+        public ACP()
         {
             InitializeComponent();
         }

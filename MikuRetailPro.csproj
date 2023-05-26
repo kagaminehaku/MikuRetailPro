@@ -52,17 +52,17 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
-    <Compile Include="%28Lv.2%29AdminCtrlPanel.cs">
+    <Compile Include="%28Lv.2_Role.0%29AdminCtrlPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="%28Lv.2%29AdminCtrlPanel.Designer.cs">
-      <DependentUpon>%28Lv.2%29AdminCtrlPanel.cs</DependentUpon>
+    <Compile Include="%28Lv.2_Role.0%29AdminCtrlPanel.Designer.cs">
+      <DependentUpon>%28Lv.2_Role.0%29AdminCtrlPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="%28Lv.2%29OfflineRetailStaff.cs">
+    <Compile Include="%28Lv.2_Role.2%29OfflineRetailStaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="%28Lv.2%29OfflineRetailStaff.Designer.cs">
-      <DependentUpon>%28Lv.2%29OfflineRetailStaff.cs</DependentUpon>
+    <Compile Include="%28Lv.2_Role.2%29OfflineRetailStaff.Designer.cs">
+      <DependentUpon>%28Lv.2_Role.2%29OfflineRetailStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="%28Lv.1%29UsrLoginUI.cs">
       <SubType>Form</SubType>
@@ -70,19 +70,31 @@
     <Compile Include="%28Lv.1%29UsrLoginUI.Designer.cs">
       <DependentUpon>%28Lv.1%29UsrLoginUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="%28Lv.2%29Manager.cs">
+    <Compile Include="%28Lv.2_Role.1%29Manager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="%28Lv.2%29Manager.Designer.cs">
-      <DependentUpon>%28Lv.2%29Manager.cs</DependentUpon>
+    <Compile Include="%28Lv.2_Role.1%29Manager.Designer.cs">
+      <DependentUpon>%28Lv.2_Role.1%29Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="%28Lv.2_Role.3%29OnlineRetailStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="%28Lv.2_Role.3%29OnlineRetailStaff.Designer.cs">
+      <DependentUpon>%28Lv.2_Role.3%29OnlineRetailStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="%28Lv.2_Role.4%29WarehouseStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="%28Lv.2_Role.4%29WarehouseStaff.Designer.cs">
+      <DependentUpon>%28Lv.2_Role.4%29WarehouseStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="%28Lv.2%29AdminCtrlPanel.resx">
-      <DependentUpon>%28Lv.2%29AdminCtrlPanel.cs</DependentUpon>
+    <EmbeddedResource Include="%28Lv.2_Role.0%29AdminCtrlPanel.resx">
+      <DependentUpon>%28Lv.2_Role.0%29AdminCtrlPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="%28Lv.1%29UsrLoginUI.resx">
       <DependentUpon>%28Lv.1%29UsrLoginUI.cs</DependentUpon>

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,26 +31,39 @@ namespace MikuRetailPro
             {
                 string username = usntxb.Text;
                 string password = pwdtxb.Text;
-
+                SqlConnection connection = null;
                 try
                 {
-                    SqlConnection connection = new SqlConnection("Data Source=HATSUNEMIKUPOCK;Initial Catalog=MikuRetailPro;Integrated Security=True");
-
+                    connection = new SqlConnection("Data Source=.;Initial Catalog=Nova_Retail;Integrated Security=True");
                     connection.Open();
-
-                    SqlCommand command = new SqlCommand("SELECT * FROM [UserAccount] WHERE username=@Username AND password=@Password", connection);
-                    command.Parameters.AddWithValue("@Username", username);
-                    command.Parameters.AddWithValue("@Password", password);
-
+                    SqlCommand command = new SqlCommand("SELECT * FROM [user_account] WHERE username=@username AND password=@password", connection);
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        MessageBox.Show("Login successful!");
-                        string staffNo = reader["StaffNo"].ToString();
-                        string accessLevel = reader["AccessLevel"].ToString();
-                        if (accessLevel == "1") ;
+                        string role = reader["role"].ToString();
+                        if (role == "0") 
                         {
-
+                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            ACP acp = new ACP();
+                            acp.ShowDialog();
+                        }
+                        if (role == "1") 
+                        {
+                            MessageBox.Show("Login successful! No ADMIN");
+                        }
+                        if (role == "2")
+                        {
+                            MessageBox.Show("Login successful! No ADMIN");
+                        }
+                        if (role == "3")
+                        {
+                            MessageBox.Show("Login successful! No ADMIN");
+                        }
+                        if (role == "4")
+                        {
+                            MessageBox.Show("Login successful! No ADMIN");
                         }
                     }
                     else
@@ -62,7 +77,13 @@ namespace MikuRetailPro
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
-
+                finally
+                {
+                    if (connection != null && connection.State != ConnectionState.Closed)
+                    {
+                        connection.Close();
+                    }
+                }
             }
         }
     }
