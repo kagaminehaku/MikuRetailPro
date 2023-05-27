@@ -18,10 +18,8 @@ namespace MikuRetailPro
         public UsrLoginUI()
         {
             InitializeComponent();
-            usrusnlabel.Parent = this;
-            usrusnlabel.BackColor = Color.Transparent;
-        }
 
+        }
         private void quitusrbtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -47,43 +45,48 @@ namespace MikuRetailPro
                     if (reader.Read())
                     {
                         string role = reader["role"].ToString();
-                        if (role == "0") 
+                        if (role.Trim() == "Admin") 
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
+                            reader.Close();
                             this.Hide();
-                            ACP acp = new ACP();
+                            ACP acp = new ACP(connection);
                             acp.ShowDialog();
                             this.Show();
                         }
-                        if (role == "1") 
+                        if (role == "Manager") 
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
+                            reader.Close();
                             this.Hide();
-                            MGR mgr = new MGR();
+                            MGR mgr = new MGR(connection);
                             mgr.ShowDialog();
                             this.Show();
                         }
-                        if (role == "2")
+                        if (role == "OffRS")
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
+                            reader.Close();
                             this.Hide();
-                            OffRS offrs = new OffRS();
+                            OffRS offrs = new OffRS(connection);
                             offrs.ShowDialog();
                             this.Show();
                         }
-                        if (role == "3")
+                        if (role == "OnRS")
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
+                            reader.Close();
                             this.Hide();
-                            OnRS onrs = new OnRS();
+                            OnRS onrs = new OnRS(connection);
                             onrs.ShowDialog();
                             this.Show();
                         }
-                        if (role == "4")
+                        if (role == "WHS")
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
+                            reader.Close();
                             this.Hide();
-                            WHS whs = new WHS();
+                            WHS whs = new WHS(connection);
                             whs.ShowDialog();
                             this.Show();
                         }
