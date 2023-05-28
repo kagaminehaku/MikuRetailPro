@@ -193,18 +193,21 @@ namespace MikuRetailPro
 
         public void Addcomp()
         {
+            label0.Enabled = false;
             label1.Enabled = true;
             label2.Enabled = true;
             label3.Enabled = true;
             label4.Enabled = true;
             label5.Enabled = true;
             label6.Enabled = true;
+            textBox0.Enabled = false;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             textBox4.Enabled = true;
             textBox5.Enabled = true;
             textBox6.Enabled = true;
+            textBox0.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -219,18 +222,21 @@ namespace MikuRetailPro
 
         public void Removecomp()
         {
+            label0.Enabled = false;
             label1.Enabled = false;
             label2.Enabled = false;
             label3.Enabled = false;
             label4.Enabled = false;
             label5.Enabled = false;
             label6.Enabled = false;
+            textBox0.Enabled = false;
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
             textBox4.Enabled = false;
             textBox5.Enabled = false;
             textBox6.Enabled = false;
+            textBox0.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -245,18 +251,21 @@ namespace MikuRetailPro
 
         public void Editcomp()
         {
+            label0.Enabled = false;
             label1.Enabled = true;
             label2.Enabled = true;
             label3.Enabled = true;
             label4.Enabled = true;
             label5.Enabled = true;
             label6.Enabled = true;
+            textBox0.Enabled = false;
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
             textBox4.Enabled = true;
             textBox5.Enabled = true;
             textBox6.Enabled = true;
+            textBox0.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
@@ -273,49 +282,105 @@ namespace MikuRetailPro
         {
             try
             {
+                string name = textBox1.Text;
+                string age = textBox2.Text;
+                string hometown = textBox3.Text;
+                string gender = textBox4.Text;
+                string contact = textBox5.Text;
+                string citizenId = textBox6.Text;
+
+                // Check if any of the textboxes are empty
+                if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(age) || string.IsNullOrEmpty(hometown)
+                    || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(contact) || string.IsNullOrEmpty(citizenId))
                 {
-                    string name = textBox1.Text;
-                    string age = textBox2.Text;
-                    string hometown = textBox3.Text;
-                    string gender = textBox4.Text;
-                    string contact = textBox5.Text;
-                    string citizenId = textBox6.Text;
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
 
-                    string query = "INSERT INTO user_profile (name, age, hometown, gender, contact, citizenid) " +
-                                   "VALUES (@Name, @Age, @Hometown, @Gender, @Contact, @CitizenID)";
+                string query = "INSERT INTO user_profile (name, age, hometown, gender, contact, citizenid) " +
+                               "VALUES (@Name, @Age, @Hometown, @Gender, @Contact, @CitizenID)";
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", name);
+                    command.Parameters.AddWithValue("@Age", age);
+                    command.Parameters.AddWithValue("@Hometown", hometown);
+                    command.Parameters.AddWithValue("@Gender", gender);
+                    command.Parameters.AddWithValue("@Contact", contact);
+                    command.Parameters.AddWithValue("@CitizenID", citizenId);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
                     {
-                        command.Parameters.AddWithValue("@Name", name);
-                        command.Parameters.AddWithValue("@Age", age);
-                        command.Parameters.AddWithValue("@Hometown", hometown);
-                        command.Parameters.AddWithValue("@Gender", gender);
-                        command.Parameters.AddWithValue("@Contact", contact);
-                        command.Parameters.AddWithValue("@CitizenID", citizenId);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Data inserted successfully!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to insert data.");
-                        }
-                        InitDataToARS_DGV();
+                        MessageBox.Show("Data inserted successfully!");
                     }
+                    else
+                    {
+                        MessageBox.Show("Failed to insert data.");
+                    }
+                    InitDataToARS_DGV();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+            Addcomp();
         }
+
 
         private void ED_Staff_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string id = textBox0.Text;
+                string name = textBox1.Text;
+                string age = textBox2.Text;
+                string hometown = textBox3.Text;
+                string gender = textBox4.Text;
+                string contact = textBox5.Text;
+                string citizenId = textBox6.Text;
 
+                // Check if any of the textboxes are empty
+                if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(age) || string.IsNullOrEmpty(hometown)
+                    || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(contact) || string.IsNullOrEmpty(citizenId))
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
+
+                string query = "UPDATE user_profile SET name = @Name, age = @Age, hometown = @Hometown, " +
+                               "gender = @Gender, contact = @Contact, citizenid = @CitizenID WHERE id = @ID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", name);
+                    command.Parameters.AddWithValue("@Age", age);
+                    command.Parameters.AddWithValue("@Hometown", hometown);
+                    command.Parameters.AddWithValue("@Gender", gender);
+                    command.Parameters.AddWithValue("@Contact", contact);
+                    command.Parameters.AddWithValue("@CitizenID", citizenId);
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Data updated successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update data.");
+                    }
+                    InitDataToARS_DGV();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            Editcomp();
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -325,7 +390,52 @@ namespace MikuRetailPro
 
         private void Rm_Staff_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string id = textBox0.Text;
 
+                // Check if the ID is empty
+                if (string.IsNullOrEmpty(id))
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
+
+                string query = "DELETE FROM user_profile WHERE id = @ID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ID", id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Record deleted successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No record found with the specified ID.");
+                    }
+                    InitDataToARS_DGV();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            Removecomp();
+        }
+
+        private void GETSTAFF_DATA_Click(object sender, EventArgs e)
+        {
+            textBox0.Text = ARS_DGV.CurrentRow.Cells["id1"].Value.ToString();
+            textBox1.Text = ARS_DGV.CurrentRow.Cells["name1"].Value.ToString();
+            textBox3.Text = ARS_DGV.CurrentRow.Cells["age1"].Value.ToString();
+            textBox2.Text = ARS_DGV.CurrentRow.Cells["hometown1"].Value.ToString();
+            textBox4.Text = ARS_DGV.CurrentRow.Cells["gender1"].Value.ToString();
+            textBox5.Text = ARS_DGV.CurrentRow.Cells["contact1"].Value.ToString();
+            textBox6.Text = ARS_DGV.CurrentRow.Cells["citizenid1"].Value.ToString();
         }
     }
 }
