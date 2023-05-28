@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,7 @@ namespace MikuRetailPro
 
             using (SqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "SELECT id, name, age FROM user_profile";
+                command.CommandText = "SELECT id, name, age, hometown, gender, contact, citizenid FROM user_profile";
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -101,8 +102,9 @@ namespace MikuRetailPro
             {
                 command.CommandText = "SELECT role FROM user_account WHERE id = @userId";
                 command.Parameters.AddWithValue("@userId", userId);
-                string role = command.ExecuteScalar()?.ToString();
-                return (role.Trim() == "Admin");
+                object result = command.ExecuteScalar();
+                string role = result?.ToString(); // Null check before calling ToString()
+                return (role != null && role.Trim() == "Admin"); // Check for null and then compare role
             }
         }
 
@@ -181,15 +183,15 @@ namespace MikuRetailPro
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            enablecomp();
+            Addcomp();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            disablecomp();
+            Removecomp();
         }
 
-        public void enablecomp()
+        public void Addcomp()
         {
             label1.Enabled = true;
             label2.Enabled = true;
@@ -209,9 +211,13 @@ namespace MikuRetailPro
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
+            Add_Staff.Enabled = true;
+            Rm_Staff.Enabled = false;
+            GETSTAFF_DATA.Enabled = false;
+            ED_Staff.Enabled = false;
         }
 
-        public void disablecomp()
+        public void Removecomp()
         {
             label1.Enabled = false;
             label2.Enabled = false;
@@ -231,6 +237,95 @@ namespace MikuRetailPro
             textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
+            Add_Staff.Enabled = false;
+            Rm_Staff.Enabled = true;
+            GETSTAFF_DATA.Enabled = true;
+            ED_Staff.Enabled = false;
+        }
+
+        public void Editcomp()
+        {
+            label1.Enabled = true;
+            label2.Enabled = true;
+            label3.Enabled = true;
+            label4.Enabled = true;
+            label5.Enabled = true;
+            label6.Enabled = true;
+            textBox1.Enabled = true;
+            textBox2.Enabled = true;
+            textBox3.Enabled = true;
+            textBox4.Enabled = true;
+            textBox5.Enabled = true;
+            textBox6.Enabled = true;
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            Add_Staff.Enabled = false;
+            Rm_Staff.Enabled = false;
+            GETSTAFF_DATA.Enabled = true;
+            ED_Staff.Enabled = true;
+        }
+
+        private void Add_Staff_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                {
+                    string name = textBox1.Text;
+                    string age = textBox2.Text;
+                    string hometown = textBox3.Text;
+                    string gender = textBox4.Text;
+                    string contact = textBox5.Text;
+                    string citizenId = textBox6.Text;
+
+                    string query = "INSERT INTO user_profile (name, age, hometown, gender, contact, citizenid) " +
+                                   "VALUES (@Name, @Age, @Hometown, @Gender, @Contact, @CitizenID)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Name", name);
+                        command.Parameters.AddWithValue("@Age", age);
+                        command.Parameters.AddWithValue("@Hometown", hometown);
+                        command.Parameters.AddWithValue("@Gender", gender);
+                        command.Parameters.AddWithValue("@Contact", contact);
+                        command.Parameters.AddWithValue("@CitizenID", citizenId);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data inserted successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to insert data.");
+                        }
+                        InitDataToARS_DGV();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void ED_Staff_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            Editcomp();
+        }
+
+        private void Rm_Staff_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

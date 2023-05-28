@@ -111,5 +111,12 @@ namespace MikuRetailPro
                 }
             }
         }
+
+        private void About_btn_Click(object sender, EventArgs e)
+        {
+            AboutMikuRetailPro abt = new AboutMikuRetailPro();
+            abt.ShowDialog();
+            this.Show();
+        }
     }
 }

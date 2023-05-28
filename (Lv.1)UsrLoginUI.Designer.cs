@@ -79,6 +79,7 @@ namespace MikuRetailPro
             this.About_btn.TabIndex = 8;
             this.About_btn.Text = "About";
             this.About_btn.UseVisualStyleBackColor = true;
+            this.About_btn.Click += new System.EventHandler(this.About_btn_Click);
             // 
             // pictureBox2
             // 

@@ -43,9 +43,6 @@
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GET_DATA = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.age1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RF_DATA = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -61,6 +58,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Add_Staff = new System.Windows.Forms.Button();
+            this.Rm_Staff = new System.Windows.Forms.Button();
+            this.GETSTAFF_DATA = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.ED_Staff = new System.Windows.Forms.Button();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.age1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hometown1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contact1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.citizenid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARS_DGV)).BeginInit();
             this.ACPTabs.SuspendLayout();
@@ -70,6 +80,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.radioButton3);
+            this.tabPage2.Controls.Add(this.ED_Staff);
+            this.tabPage2.Controls.Add(this.GETSTAFF_DATA);
+            this.tabPage2.Controls.Add(this.Rm_Staff);
+            this.tabPage2.Controls.Add(this.Add_Staff);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label4);
@@ -104,7 +119,11 @@
             this.ARS_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id1,
             this.name1,
-            this.age1});
+            this.age1,
+            this.hometown1,
+            this.gender1,
+            this.contact1,
+            this.citizenid});
             this.ARS_DGV.Location = new System.Drawing.Point(440, 6);
             this.ARS_DGV.Name = "ARS_DGV";
             this.ARS_DGV.ReadOnly = true;
@@ -115,6 +134,7 @@
             // 
             this.ACPTabs.Controls.Add(this.tabPage1);
             this.ACPTabs.Controls.Add(this.tabPage2);
+            this.ACPTabs.Controls.Add(this.tabPage3);
             this.ACPTabs.Location = new System.Drawing.Point(12, 12);
             this.ACPTabs.Name = "ACPTabs";
             this.ACPTabs.SelectedIndex = 0;
@@ -218,24 +238,6 @@
             this.GET_DATA.UseVisualStyleBackColor = true;
             this.GET_DATA.Click += new System.EventHandler(this.button1_Click);
             // 
-            // id1
-            // 
-            this.id1.HeaderText = "ID";
-            this.id1.Name = "id1";
-            this.id1.ReadOnly = true;
-            // 
-            // name1
-            // 
-            this.name1.HeaderText = "Name";
-            this.name1.Name = "name1";
-            this.name1.ReadOnly = true;
-            // 
-            // age1
-            // 
-            this.age1.HeaderText = "Age";
-            this.age1.Name = "age1";
-            this.age1.ReadOnly = true;
-            // 
             // RF_DATA
             // 
             this.RF_DATA.Location = new System.Drawing.Point(28, 286);
@@ -297,7 +299,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(113, 6);
+            this.radioButton1.Location = new System.Drawing.Point(92, 7);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(44, 17);
             this.radioButton1.TabIndex = 8;
@@ -309,7 +311,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(234, 6);
+            this.radioButton2.Location = new System.Drawing.Point(166, 7);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(65, 17);
             this.radioButton2.TabIndex = 9;
@@ -378,6 +380,113 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "CitizenID";
             // 
+            // Add_Staff
+            // 
+            this.Add_Staff.Enabled = false;
+            this.Add_Staff.Location = new System.Drawing.Point(23, 315);
+            this.Add_Staff.Name = "Add_Staff";
+            this.Add_Staff.Size = new System.Drawing.Size(167, 33);
+            this.Add_Staff.TabIndex = 16;
+            this.Add_Staff.Text = "Add Staff";
+            this.Add_Staff.UseVisualStyleBackColor = true;
+            this.Add_Staff.Click += new System.EventHandler(this.Add_Staff_Click);
+            // 
+            // Rm_Staff
+            // 
+            this.Rm_Staff.Enabled = false;
+            this.Rm_Staff.Location = new System.Drawing.Point(249, 315);
+            this.Rm_Staff.Name = "Rm_Staff";
+            this.Rm_Staff.Size = new System.Drawing.Size(167, 33);
+            this.Rm_Staff.TabIndex = 17;
+            this.Rm_Staff.Text = "Remove Staff";
+            this.Rm_Staff.UseVisualStyleBackColor = true;
+            this.Rm_Staff.Click += new System.EventHandler(this.Rm_Staff_Click);
+            // 
+            // GETSTAFF_DATA
+            // 
+            this.GETSTAFF_DATA.Enabled = false;
+            this.GETSTAFF_DATA.Location = new System.Drawing.Point(23, 354);
+            this.GETSTAFF_DATA.Name = "GETSTAFF_DATA";
+            this.GETSTAFF_DATA.Size = new System.Drawing.Size(167, 33);
+            this.GETSTAFF_DATA.TabIndex = 18;
+            this.GETSTAFF_DATA.Text = "GetData";
+            this.GETSTAFF_DATA.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(768, 400);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "BindingAccount";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ED_Staff
+            // 
+            this.ED_Staff.Enabled = false;
+            this.ED_Staff.Location = new System.Drawing.Point(249, 354);
+            this.ED_Staff.Name = "ED_Staff";
+            this.ED_Staff.Size = new System.Drawing.Size(167, 33);
+            this.ED_Staff.TabIndex = 19;
+            this.ED_Staff.Text = "Edit";
+            this.ED_Staff.UseVisualStyleBackColor = true;
+            this.ED_Staff.Click += new System.EventHandler(this.ED_Staff_Click);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(249, 7);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(43, 17);
+            this.radioButton3.TabIndex = 20;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Edit";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // id1
+            // 
+            this.id1.HeaderText = "ID";
+            this.id1.Name = "id1";
+            this.id1.ReadOnly = true;
+            // 
+            // name1
+            // 
+            this.name1.HeaderText = "Name";
+            this.name1.Name = "name1";
+            this.name1.ReadOnly = true;
+            // 
+            // age1
+            // 
+            this.age1.HeaderText = "Age";
+            this.age1.Name = "age1";
+            this.age1.ReadOnly = true;
+            // 
+            // hometown1
+            // 
+            this.hometown1.HeaderText = "Hometown";
+            this.hometown1.Name = "hometown1";
+            this.hometown1.ReadOnly = true;
+            // 
+            // gender1
+            // 
+            this.gender1.HeaderText = "Gender";
+            this.gender1.Name = "gender1";
+            this.gender1.ReadOnly = true;
+            // 
+            // contact1
+            // 
+            this.contact1.HeaderText = "Contact";
+            this.contact1.Name = "contact1";
+            this.contact1.ReadOnly = true;
+            // 
+            // citizenid
+            // 
+            this.citizenid.HeaderText = "CitizenID";
+            this.citizenid.Name = "citizenid";
+            this.citizenid.ReadOnly = true;
+            // 
             // ACP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,9 +523,6 @@
         private System.Windows.Forms.TextBox acptb1;
         private System.Windows.Forms.Button GET_DATA;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn age1;
         private System.Windows.Forms.Button RF_DATA;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
@@ -432,5 +538,18 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button Rm_Staff;
+        private System.Windows.Forms.Button Add_Staff;
+        private System.Windows.Forms.Button GETSTAFF_DATA;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Button ED_Staff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn age1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hometown1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gender1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contact1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn citizenid;
     }
 }
