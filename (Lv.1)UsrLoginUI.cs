@@ -20,13 +20,7 @@ namespace MikuRetailPro
             InitializeComponent();
 
         }
-        private void quitusrbtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Application.Exit();
-        }
-
-        private void loginusrbtn_Click(object sender, EventArgs e)
+        private void Loginusrbtn_Click(object sender, EventArgs e)
         {
             {
                 string username = usntxb.Text;

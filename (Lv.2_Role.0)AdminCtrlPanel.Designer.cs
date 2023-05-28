@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ACP));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox0 = new System.Windows.Forms.TextBox();
+            this.label0 = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.ED_Staff = new System.Windows.Forms.Button();
             this.GETSTAFF_DATA = new System.Windows.Forms.Button();
@@ -50,6 +52,13 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ARS_DGV = new System.Windows.Forms.DataGridView();
+            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.age1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hometown1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contact1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.citizenid1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ACPTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.RF_DATA = new System.Windows.Forms.Button();
@@ -64,20 +73,25 @@
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label0 = new System.Windows.Forms.Label();
-            this.textBox0 = new System.Windows.Forms.TextBox();
-            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.age1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hometown1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contact1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.citizenid1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ARS2_DGV = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.BINDSTAFF = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARS_DGV)).BeginInit();
             this.ACPTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RS_PWD_DGV)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ARS2_DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
@@ -112,6 +126,24 @@
             this.tabPage2.Text = "Add/Remove Staff ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // textBox0
+            // 
+            this.textBox0.Enabled = false;
+            this.textBox0.Location = new System.Drawing.Point(23, 49);
+            this.textBox0.Name = "textBox0";
+            this.textBox0.Size = new System.Drawing.Size(393, 20);
+            this.textBox0.TabIndex = 22;
+            // 
+            // label0
+            // 
+            this.label0.AutoSize = true;
+            this.label0.Enabled = false;
+            this.label0.Location = new System.Drawing.Point(23, 33);
+            this.label0.Name = "label0";
+            this.label0.Size = new System.Drawing.Size(18, 13);
+            this.label0.TabIndex = 21;
+            this.label0.Text = "ID";
+            // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
@@ -122,7 +154,7 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Edit";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.RadioButton3_CheckedChanged);
             // 
             // ED_Staff
             // 
@@ -238,7 +270,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Remove";
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -250,7 +282,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Add";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
             // textBox6
             // 
@@ -322,6 +354,48 @@
             this.ARS_DGV.Size = new System.Drawing.Size(322, 388);
             this.ARS_DGV.TabIndex = 1;
             // 
+            // id1
+            // 
+            this.id1.HeaderText = "ID";
+            this.id1.Name = "id1";
+            this.id1.ReadOnly = true;
+            // 
+            // name1
+            // 
+            this.name1.HeaderText = "Name";
+            this.name1.Name = "name1";
+            this.name1.ReadOnly = true;
+            // 
+            // age1
+            // 
+            this.age1.HeaderText = "Age";
+            this.age1.Name = "age1";
+            this.age1.ReadOnly = true;
+            // 
+            // hometown1
+            // 
+            this.hometown1.HeaderText = "Hometown";
+            this.hometown1.Name = "hometown1";
+            this.hometown1.ReadOnly = true;
+            // 
+            // gender1
+            // 
+            this.gender1.HeaderText = "Gender";
+            this.gender1.Name = "gender1";
+            this.gender1.ReadOnly = true;
+            // 
+            // contact1
+            // 
+            this.contact1.HeaderText = "Contact";
+            this.contact1.Name = "contact1";
+            this.contact1.ReadOnly = true;
+            // 
+            // citizenid1
+            // 
+            this.citizenid1.HeaderText = "CitizenID";
+            this.citizenid1.Name = "citizenid1";
+            this.citizenid1.ReadOnly = true;
+            // 
             // ACPTabs
             // 
             this.ACPTabs.Controls.Add(this.tabPage1);
@@ -368,7 +442,7 @@
             this.GET_DATA.TabIndex = 7;
             this.GET_DATA.Text = "GetData";
             this.GET_DATA.UseVisualStyleBackColor = true;
-            this.GET_DATA.Click += new System.EventHandler(this.button1_Click);
+            this.GET_DATA.Click += new System.EventHandler(this.Button1_Click);
             // 
             // RS_PWD
             // 
@@ -442,6 +516,11 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.BINDSTAFF);
+            this.tabPage3.Controls.Add(this.textBox9);
+            this.tabPage3.Controls.Add(this.textBox8);
+            this.tabPage3.Controls.Add(this.textBox7);
+            this.tabPage3.Controls.Add(this.ARS2_DGV);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -450,65 +529,99 @@
             this.tabPage3.Text = "BindingAccount";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label0
+            // ARS2_DGV
             // 
-            this.label0.AutoSize = true;
-            this.label0.Enabled = false;
-            this.label0.Location = new System.Drawing.Point(23, 33);
-            this.label0.Name = "label0";
-            this.label0.Size = new System.Drawing.Size(18, 13);
-            this.label0.TabIndex = 21;
-            this.label0.Text = "ID";
+            this.ARS2_DGV.AllowUserToAddRows = false;
+            this.ARS2_DGV.AllowUserToDeleteRows = false;
+            this.ARS2_DGV.AllowUserToOrderColumns = true;
+            this.ARS2_DGV.AllowUserToResizeColumns = false;
+            this.ARS2_DGV.AllowUserToResizeRows = false;
+            this.ARS2_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ARS2_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.ARS2_DGV.Location = new System.Drawing.Point(440, 6);
+            this.ARS2_DGV.Name = "ARS2_DGV";
+            this.ARS2_DGV.ReadOnly = true;
+            this.ARS2_DGV.Size = new System.Drawing.Size(322, 388);
+            this.ARS2_DGV.TabIndex = 2;
             // 
-            // textBox0
+            // dataGridViewTextBoxColumn1
             // 
-            this.textBox0.Enabled = false;
-            this.textBox0.Location = new System.Drawing.Point(23, 49);
-            this.textBox0.Name = "textBox0";
-            this.textBox0.Size = new System.Drawing.Size(393, 20);
-            this.textBox0.TabIndex = 22;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // id1
+            // dataGridViewTextBoxColumn2
             // 
-            this.id1.HeaderText = "ID";
-            this.id1.Name = "id1";
-            this.id1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // name1
+            // dataGridViewTextBoxColumn3
             // 
-            this.name1.HeaderText = "Name";
-            this.name1.Name = "name1";
-            this.name1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Age";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // age1
+            // dataGridViewTextBoxColumn4
             // 
-            this.age1.HeaderText = "Age";
-            this.age1.Name = "age1";
-            this.age1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Hometown";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // hometown1
+            // dataGridViewTextBoxColumn5
             // 
-            this.hometown1.HeaderText = "Hometown";
-            this.hometown1.Name = "hometown1";
-            this.hometown1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Gender";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // gender1
+            // dataGridViewTextBoxColumn6
             // 
-            this.gender1.HeaderText = "Gender";
-            this.gender1.Name = "gender1";
-            this.gender1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Contact";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // contact1
+            // dataGridViewTextBoxColumn7
             // 
-            this.contact1.HeaderText = "Contact";
-            this.contact1.Name = "contact1";
-            this.contact1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.HeaderText = "CitizenID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // citizenid1
+            // textBox7
             // 
-            this.citizenid1.HeaderText = "CitizenID";
-            this.citizenid1.Name = "citizenid1";
-            this.citizenid1.ReadOnly = true;
+            this.textBox7.Location = new System.Drawing.Point(38, 32);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(309, 20);
+            this.textBox7.TabIndex = 3;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(38, 84);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(309, 20);
+            this.textBox8.TabIndex = 4;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(38, 137);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(309, 20);
+            this.textBox9.TabIndex = 5;
+            // 
+            // BINDSTAFF
+            // 
+            this.BINDSTAFF.Location = new System.Drawing.Point(38, 235);
+            this.BINDSTAFF.Name = "BINDSTAFF";
+            this.BINDSTAFF.Size = new System.Drawing.Size(309, 86);
+            this.BINDSTAFF.TabIndex = 6;
+            this.BINDSTAFF.Text = "BindAccount";
+            this.BINDSTAFF.UseVisualStyleBackColor = true;
             // 
             // ACP
             // 
@@ -526,6 +639,9 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RS_PWD_DGV)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ARS2_DGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,5 +692,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn gender1;
         private System.Windows.Forms.DataGridViewTextBoxColumn contact1;
         private System.Windows.Forms.DataGridViewTextBoxColumn citizenid1;
+        private System.Windows.Forms.DataGridView ARS2_DGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.Button BINDSTAFF;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }

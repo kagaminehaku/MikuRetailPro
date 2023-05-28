@@ -69,7 +69,7 @@ namespace MikuRetailPro
             this.Loginusrbtn.TabIndex = 4;
             this.Loginusrbtn.Text = "Login";
             this.Loginusrbtn.UseVisualStyleBackColor = false;
-            this.Loginusrbtn.Click += new System.EventHandler(this.loginusrbtn_Click);
+            this.Loginusrbtn.Click += new System.EventHandler(this.Loginusrbtn_Click);
             // 
             // About_btn
             // 

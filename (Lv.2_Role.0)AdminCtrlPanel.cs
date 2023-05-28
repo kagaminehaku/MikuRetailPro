@@ -24,6 +24,7 @@ namespace MikuRetailPro
             InitializeComponent();
             InitDataToRSPWD_DGV();
             InitDataToARS_DGV();
+            InitDataToARS2_DGV();
         }
 
         public void InitDataToRSPWD_DGV()
@@ -95,6 +96,42 @@ namespace MikuRetailPro
             }
         }
 
+        public void InitDataToARS2_DGV()
+        {
+            ARS2_DGV.Rows.Clear();
+
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT id, name, age, hometown, gender, contact, citizenid FROM user_profile";
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        List<object> rowValues = new List<object>();
+
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            rowValues.Add(reader.GetValue(i));
+                        }
+
+                        int idIndex = reader.GetOrdinal("id"); // Get the index of the "id" column
+                        int idValue = reader.GetInt32(idIndex); // Get the value of the "id" column as an int
+
+                        bool isAdmin = IsAccountYet(idValue); // Check if the user has an "Admin" role
+
+                        if (isAdmin)
+                        {
+                            continue; // Skip adding the row but continue with the next iteration
+                        }
+
+                        ARS2_DGV.Rows.Add(rowValues.ToArray());
+                    }
+
+                    // Close the SqlDataReader after reading all the rows
+                    reader.Close();
+                }
+            }
+        }
 
         private bool IsThatAdmin(int userId)
         {
@@ -108,7 +145,18 @@ namespace MikuRetailPro
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private bool IsAccountYet(int userId)
+        {
+            using (SqlCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT COUNT(*) FROM user_account WHERE id = @userId";
+                command.Parameters.AddWithValue("@userId", userId);
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                return count > 0;
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
         {
             acptb1.Text = RS_PWD_DGV.CurrentRow.Cells["username"].Value.ToString();
             acptb2.Text = RS_PWD_DGV.CurrentRow.Cells["id"].Value.ToString();
@@ -181,12 +229,12 @@ namespace MikuRetailPro
             InitDataToRSPWD_DGV();
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
             Addcomp();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
             Removecomp();
         }
@@ -383,7 +431,7 @@ namespace MikuRetailPro
             Editcomp();
         }
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        private void RadioButton3_CheckedChanged(object sender, EventArgs e)
         {
             Editcomp();
         }
@@ -397,34 +445,53 @@ namespace MikuRetailPro
                 // Check if the ID is empty
                 if (string.IsNullOrEmpty(id))
                 {
-                    MessageBox.Show("Please fill in all fields.");
+                    MessageBox.Show("Please enter an ID.");
                     return;
                 }
 
-                string query = "DELETE FROM user_profile WHERE id = @ID";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                // Delete record from user_account table first
+                string accountQuery = "DELETE FROM user_account WHERE id = @ID";
+                using (SqlCommand accountCommand = new SqlCommand(accountQuery, connection))
                 {
-                    command.Parameters.AddWithValue("@ID", id);
+                    accountCommand.Parameters.AddWithValue("@ID", id);
+                    int accountRowsAffected = accountCommand.ExecuteNonQuery();
 
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
+                    // Delete record from user_profile table
+                    string profileQuery = "DELETE FROM user_profile WHERE id = @ID";
+                    using (SqlCommand profileCommand = new SqlCommand(profileQuery, connection))
                     {
-                        MessageBox.Show("Record deleted successfully!");
+                        profileCommand.Parameters.AddWithValue("@ID", id);
+                        int profileRowsAffected = profileCommand.ExecuteNonQuery();
+
+                        if (profileRowsAffected > 0)
+                        {
+                            MessageBox.Show("Record deleted successfully!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No record found with the specified ID.");
+                        }
+                    }
+
+                    if (accountRowsAffected > 0)
+                    {
+                        MessageBox.Show("Account deleted successfully!");
                     }
                     else
                     {
-                        MessageBox.Show("No record found with the specified ID.");
+                        MessageBox.Show("Account of this Profile not found.");
                     }
-                    InitDataToARS_DGV();
                 }
+
+                InitDataToARS_DGV();
+                Removecomp();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-            Removecomp();
+
+
         }
 
         private void GETSTAFF_DATA_Click(object sender, EventArgs e)
