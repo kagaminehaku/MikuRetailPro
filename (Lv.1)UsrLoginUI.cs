@@ -34,7 +34,7 @@ namespace MikuRetailPro
                 SqlConnection connection = null;
                 try
                 {
-                    connection = new SqlConnection("Data Source=.;Initial Catalog=Nova_Retail;Integrated Security=True");
+                    connection = new SqlConnection("Data Source=.;Initial Catalog=Nova_Retail;Integrated Security=True;MultipleActiveResultSets=True");
                     connection.Open();
                     SqlCommand command = new SqlCommand("SELECT * FROM [user_account] WHERE username=@username AND password=@password", connection);
                     command.Parameters.AddWithValue("@username", username);
@@ -54,7 +54,7 @@ namespace MikuRetailPro
                             acp.ShowDialog();
                             this.Show();
                         }
-                        if (role == "Manager") 
+                        if (role.Trim() == "Manager") 
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
                             reader.Close();
@@ -63,7 +63,7 @@ namespace MikuRetailPro
                             mgr.ShowDialog();
                             this.Show();
                         }
-                        if (role == "OffRS")
+                        if (role.Trim() == "OffRS")
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
                             reader.Close();
@@ -72,7 +72,7 @@ namespace MikuRetailPro
                             offrs.ShowDialog();
                             this.Show();
                         }
-                        if (role == "OnRS")
+                        if (role.Trim() == "OnRS")
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
                             reader.Close();
@@ -81,7 +81,7 @@ namespace MikuRetailPro
                             onrs.ShowDialog();
                             this.Show();
                         }
-                        if (role == "WHS")
+                        if (role.Trim() == "WHS")
                         {
                             MessageBox.Show("Login successful!\nHave a nice day!");
                             reader.Close();

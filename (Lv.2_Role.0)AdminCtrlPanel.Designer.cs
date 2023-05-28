@@ -30,73 +30,86 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ACP));
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.ARESDGV = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ARS_DGV = new System.Windows.Forms.DataGridView();
             this.ACPTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.AREADGV = new System.Windows.Forms.DataGridView();
+            this.RS_PWD = new System.Windows.Forms.Button();
+            this.acptb3 = new System.Windows.Forms.TextBox();
+            this.acptb2 = new System.Windows.Forms.TextBox();
+            this.acptb1 = new System.Windows.Forms.TextBox();
+            this.RS_PWD_DGV = new System.Windows.Forms.DataGridView();
             this.username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GET_DATA = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.age1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RF_DATA = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.RS_PWD = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ARESDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ARS_DGV)).BeginInit();
             this.ACPTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AREADGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RS_PWD_DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.ARESDGV);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.radioButton2);
+            this.tabPage2.Controls.Add(this.radioButton1);
+            this.tabPage2.Controls.Add(this.textBox6);
+            this.tabPage2.Controls.Add(this.textBox5);
+            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.ARS_DGV);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(768, 400);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Add/Remove/Edit Staff ";
+            this.tabPage2.Text = "Add/Remove Staff ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // ARESDGV
+            // ARS_DGV
             // 
-            this.ARESDGV.AllowUserToAddRows = false;
-            this.ARESDGV.AllowUserToDeleteRows = false;
-            this.ARESDGV.AllowUserToOrderColumns = true;
-            this.ARESDGV.AllowUserToResizeColumns = false;
-            this.ARESDGV.AllowUserToResizeRows = false;
-            this.ARESDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ARESDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.ARESDGV.Location = new System.Drawing.Point(471, 6);
-            this.ARESDGV.Name = "ARESDGV";
-            this.ARESDGV.ReadOnly = true;
-            this.ARESDGV.Size = new System.Drawing.Size(291, 388);
-            this.ARESDGV.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Username";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Role";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.ARS_DGV.AllowUserToAddRows = false;
+            this.ARS_DGV.AllowUserToDeleteRows = false;
+            this.ARS_DGV.AllowUserToOrderColumns = true;
+            this.ARS_DGV.AllowUserToResizeColumns = false;
+            this.ARS_DGV.AllowUserToResizeRows = false;
+            this.ARS_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ARS_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id1,
+            this.name1,
+            this.age1});
+            this.ARS_DGV.Location = new System.Drawing.Point(440, 6);
+            this.ARS_DGV.Name = "ARS_DGV";
+            this.ARS_DGV.ReadOnly = true;
+            this.ARS_DGV.Size = new System.Drawing.Size(322, 388);
+            this.ARS_DGV.TabIndex = 1;
             // 
             // ACPTabs
             // 
@@ -110,36 +123,72 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.RF_DATA);
+            this.tabPage1.Controls.Add(this.GET_DATA);
             this.tabPage1.Controls.Add(this.RS_PWD);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.AREADGV);
+            this.tabPage1.Controls.Add(this.acptb3);
+            this.tabPage1.Controls.Add(this.acptb2);
+            this.tabPage1.Controls.Add(this.acptb1);
+            this.tabPage1.Controls.Add(this.RS_PWD_DGV);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(768, 400);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Add/Remove/Edit Account";
+            this.tabPage1.Text = "ResetPassword";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // AREADGV
+            // RS_PWD
             // 
-            this.AREADGV.AllowUserToAddRows = false;
-            this.AREADGV.AllowUserToDeleteRows = false;
-            this.AREADGV.AllowUserToOrderColumns = true;
-            this.AREADGV.AllowUserToResizeColumns = false;
-            this.AREADGV.AllowUserToResizeRows = false;
-            this.AREADGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AREADGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RS_PWD.Location = new System.Drawing.Point(28, 251);
+            this.RS_PWD.Name = "RS_PWD";
+            this.RS_PWD.Size = new System.Drawing.Size(392, 29);
+            this.RS_PWD.TabIndex = 6;
+            this.RS_PWD.Text = "Reset Password";
+            this.RS_PWD.UseVisualStyleBackColor = true;
+            this.RS_PWD.Click += new System.EventHandler(this.RS_PWD_Click);
+            // 
+            // acptb3
+            // 
+            this.acptb3.Enabled = false;
+            this.acptb3.Location = new System.Drawing.Point(28, 166);
+            this.acptb3.Name = "acptb3";
+            this.acptb3.Size = new System.Drawing.Size(392, 20);
+            this.acptb3.TabIndex = 3;
+            // 
+            // acptb2
+            // 
+            this.acptb2.Enabled = false;
+            this.acptb2.Location = new System.Drawing.Point(28, 111);
+            this.acptb2.Name = "acptb2";
+            this.acptb2.Size = new System.Drawing.Size(392, 20);
+            this.acptb2.TabIndex = 2;
+            // 
+            // acptb1
+            // 
+            this.acptb1.Enabled = false;
+            this.acptb1.Location = new System.Drawing.Point(28, 63);
+            this.acptb1.Name = "acptb1";
+            this.acptb1.Size = new System.Drawing.Size(392, 20);
+            this.acptb1.TabIndex = 1;
+            // 
+            // RS_PWD_DGV
+            // 
+            this.RS_PWD_DGV.AllowUserToAddRows = false;
+            this.RS_PWD_DGV.AllowUserToDeleteRows = false;
+            this.RS_PWD_DGV.AllowUserToOrderColumns = true;
+            this.RS_PWD_DGV.AllowUserToResizeColumns = false;
+            this.RS_PWD_DGV.AllowUserToResizeRows = false;
+            this.RS_PWD_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RS_PWD_DGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.username,
             this.id,
             this.role});
-            this.AREADGV.Location = new System.Drawing.Point(471, 6);
-            this.AREADGV.Name = "AREADGV";
-            this.AREADGV.ReadOnly = true;
-            this.AREADGV.Size = new System.Drawing.Size(291, 388);
-            this.AREADGV.TabIndex = 0;
+            this.RS_PWD_DGV.Location = new System.Drawing.Point(471, 6);
+            this.RS_PWD_DGV.Name = "RS_PWD_DGV";
+            this.RS_PWD_DGV.ReadOnly = true;
+            this.RS_PWD_DGV.Size = new System.Drawing.Size(291, 388);
+            this.RS_PWD_DGV.TabIndex = 0;
             // 
             // username
             // 
@@ -159,35 +208,175 @@
             this.role.Name = "role";
             this.role.ReadOnly = true;
             // 
+            // GET_DATA
+            // 
+            this.GET_DATA.Location = new System.Drawing.Point(28, 216);
+            this.GET_DATA.Name = "GET_DATA";
+            this.GET_DATA.Size = new System.Drawing.Size(392, 29);
+            this.GET_DATA.TabIndex = 7;
+            this.GET_DATA.Text = "GetData";
+            this.GET_DATA.UseVisualStyleBackColor = true;
+            this.GET_DATA.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // id1
+            // 
+            this.id1.HeaderText = "ID";
+            this.id1.Name = "id1";
+            this.id1.ReadOnly = true;
+            // 
+            // name1
+            // 
+            this.name1.HeaderText = "Name";
+            this.name1.Name = "name1";
+            this.name1.ReadOnly = true;
+            // 
+            // age1
+            // 
+            this.age1.HeaderText = "Age";
+            this.age1.Name = "age1";
+            this.age1.ReadOnly = true;
+            // 
+            // RF_DATA
+            // 
+            this.RF_DATA.Location = new System.Drawing.Point(28, 286);
+            this.RF_DATA.Name = "RF_DATA";
+            this.RF_DATA.Size = new System.Drawing.Size(392, 29);
+            this.RF_DATA.TabIndex = 8;
+            this.RF_DATA.Text = "Refresh";
+            this.RF_DATA.UseVisualStyleBackColor = true;
+            this.RF_DATA.Click += new System.EventHandler(this.RF_DATA_Click);
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 63);
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(23, 41);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(392, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.Size = new System.Drawing.Size(393, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(28, 111);
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(23, 127);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(392, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.Size = new System.Drawing.Size(393, 20);
+            this.textBox2.TabIndex = 3;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(28, 166);
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(23, 83);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(392, 20);
-            this.textBox3.TabIndex = 3;
+            this.textBox3.Size = new System.Drawing.Size(393, 20);
+            this.textBox3.TabIndex = 4;
             // 
-            // RS_PWD
+            // textBox4
             // 
-            this.RS_PWD.Location = new System.Drawing.Point(28, 251);
-            this.RS_PWD.Name = "RS_PWD";
-            this.RS_PWD.Size = new System.Drawing.Size(392, 29);
-            this.RS_PWD.TabIndex = 6;
-            this.RS_PWD.Text = "Reset Password";
-            this.RS_PWD.UseVisualStyleBackColor = true;
+            this.textBox4.Enabled = false;
+            this.textBox4.Location = new System.Drawing.Point(23, 175);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(393, 20);
+            this.textBox4.TabIndex = 5;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Enabled = false;
+            this.textBox5.Location = new System.Drawing.Point(23, 272);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(393, 20);
+            this.textBox5.TabIndex = 6;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Enabled = false;
+            this.textBox6.Location = new System.Drawing.Point(23, 225);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(393, 20);
+            this.textBox6.TabIndex = 7;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(113, 6);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(44, 17);
+            this.radioButton1.TabIndex = 8;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Add";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(234, 6);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(65, 17);
+            this.radioButton2.TabIndex = 9;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Remove";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Enabled = false;
+            this.label1.Location = new System.Drawing.Point(23, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Enabled = false;
+            this.label2.Location = new System.Drawing.Point(23, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Age";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Enabled = false;
+            this.label3.Location = new System.Drawing.Point(23, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Hometown";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Enabled = false;
+            this.label4.Location = new System.Drawing.Point(23, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Gender";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Enabled = false;
+            this.label5.Location = new System.Drawing.Point(23, 209);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Contact";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Enabled = false;
+            this.label6.Location = new System.Drawing.Point(23, 256);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "CitizenID";
             // 
             // ACP
             // 
@@ -199,11 +388,12 @@
             this.Name = "ACP";
             this.Text = "NovaRetail-AdminControlPanel";
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ARESDGV)).EndInit();
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ARS_DGV)).EndInit();
             this.ACPTabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AREADGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RS_PWD_DGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -213,17 +403,34 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabControl ACPTabs;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView AREADGV;
+        private System.Windows.Forms.DataGridView RS_PWD_DGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn role;
-        private System.Windows.Forms.DataGridView ARESDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridView ARS_DGV;
         private System.Windows.Forms.Button RS_PWD;
+        private System.Windows.Forms.TextBox acptb3;
+        private System.Windows.Forms.TextBox acptb2;
+        private System.Windows.Forms.TextBox acptb1;
+        private System.Windows.Forms.Button GET_DATA;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn age1;
+        private System.Windows.Forms.Button RF_DATA;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
