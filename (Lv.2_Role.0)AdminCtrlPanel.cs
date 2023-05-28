@@ -102,7 +102,7 @@ namespace MikuRetailPro
                 command.CommandText = "SELECT role FROM user_account WHERE id = @userId";
                 command.Parameters.AddWithValue("@userId", userId);
                 string role = command.ExecuteScalar()?.ToString();
-                return (role == "Admin");
+                return (role.Trim() == "Admin");
             }
         }
 
