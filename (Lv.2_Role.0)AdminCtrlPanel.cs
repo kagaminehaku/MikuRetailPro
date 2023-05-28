@@ -22,6 +22,11 @@ namespace MikuRetailPro
         {
             this.connection = connection;
             InitializeComponent();
+            RefreshData();
+        }
+
+        public void RefreshData()
+        {
             InitDataToRSPWD_DGV();
             InitDataToARS_DGV();
             InitDataToARS2_DGV();
@@ -55,6 +60,7 @@ namespace MikuRetailPro
 
                         RS_PWD_DGV.Rows.Add(rowValues.ToArray());
                     }
+                    reader.Close();
                 }
             }
         }
@@ -158,6 +164,7 @@ namespace MikuRetailPro
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            RefreshData();
             acptb1.Text = RS_PWD_DGV.CurrentRow.Cells["username"].Value.ToString();
             acptb2.Text = RS_PWD_DGV.CurrentRow.Cells["id"].Value.ToString();
             acptb3.Text = RS_PWD_DGV.CurrentRow.Cells["role"].Value.ToString();
@@ -222,11 +229,7 @@ namespace MikuRetailPro
             {
                 MessageBox.Show("Invalid password! The new password must be at least 8 characters long.");
             }
-        }
-
-        private void RF_DATA_Click(object sender, EventArgs e)
-        {
-            InitDataToRSPWD_DGV();
+            RefreshData();
         }
 
         private void RadioButton1_CheckedChanged(object sender, EventArgs e)
@@ -367,7 +370,6 @@ namespace MikuRetailPro
                     {
                         MessageBox.Show("Failed to insert data.");
                     }
-                    InitDataToARS_DGV();
                 }
             }
             catch (Exception ex)
@@ -375,6 +377,7 @@ namespace MikuRetailPro
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
             Addcomp();
+            RefreshData();
         }
 
 
@@ -421,7 +424,6 @@ namespace MikuRetailPro
                     {
                         MessageBox.Show("Failed to update data.");
                     }
-                    InitDataToARS_DGV();
                 }
             }
             catch (Exception ex)
@@ -429,6 +431,7 @@ namespace MikuRetailPro
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
             Editcomp();
+            RefreshData();
         }
 
         private void RadioButton3_CheckedChanged(object sender, EventArgs e)
@@ -482,9 +485,8 @@ namespace MikuRetailPro
                         MessageBox.Show("Account of this Profile not found.");
                     }
                 }
-
-                InitDataToARS_DGV();
                 Removecomp();
+                RefreshData();
             }
             catch (Exception ex)
             {
@@ -503,6 +505,86 @@ namespace MikuRetailPro
             textBox4.Text = ARS_DGV.CurrentRow.Cells["gender1"].Value.ToString();
             textBox5.Text = ARS_DGV.CurrentRow.Cells["contact1"].Value.ToString();
             textBox6.Text = ARS_DGV.CurrentRow.Cells["citizenid1"].Value.ToString();
+            RefreshData();
+        }
+
+        private void BINDSTAFF_Click(object sender, EventArgs e)
+        {
+
+            textBox10.Text = ARS2_DGV.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+            try
+            {
+                string username = textBox7.Text;
+                string password = textBox8.Text;
+                string rpassword = textBox9.Text;
+                string id = textBox10.Text;
+                string role = textBox11.Text;   
+
+
+                // Check if any of the textboxes are empty
+                if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(rpassword))
+                {
+                    MessageBox.Show("Please fill in all fields.");
+                    return;
+                }
+                if ( password != rpassword)
+                {
+                    MessageBox.Show("Password does not match.");
+                    return;
+                }
+                if (password.Length <= 8)
+                {
+                    MessageBox.Show("Password not long enough (>8 characters).");
+                    return;
+                }
+                string query = "INSERT INTO user_account (username, password, id, role) " +
+                               "VALUES (@username, @password, @id, @role)";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@password", password);
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@role", role);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Data inserted successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to insert data.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            Addcomp();
+            RefreshData();
+        }
+
+        private void RadioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox11.Text = "Admin";
+        }
+
+        private void RadioButton6_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox11.Text = "OnRS";
+        }
+
+        private void RadioButton5_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox11.Text = "Manager";
+        }
+
+        private void RadioButton7_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox11.Text = "OffRS";
         }
     }
 }

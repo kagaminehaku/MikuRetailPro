@@ -61,7 +61,6 @@
             this.citizenid1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ACPTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.RF_DATA = new System.Windows.Forms.Button();
             this.GET_DATA = new System.Windows.Forms.Button();
             this.RS_PWD = new System.Windows.Forms.Button();
             this.acptb3 = new System.Windows.Forms.TextBox();
@@ -72,7 +71,21 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.BINDSTAFF = new System.Windows.Forms.Button();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.ARS2_DGV = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,16 +94,14 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.BINDSTAFF = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARS_DGV)).BeginInit();
             this.ACPTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RS_PWD_DGV)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARS2_DGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,9 +170,9 @@
             // ED_Staff
             // 
             this.ED_Staff.Enabled = false;
-            this.ED_Staff.Location = new System.Drawing.Point(249, 354);
+            this.ED_Staff.Location = new System.Drawing.Point(249, 339);
             this.ED_Staff.Name = "ED_Staff";
-            this.ED_Staff.Size = new System.Drawing.Size(167, 33);
+            this.ED_Staff.Size = new System.Drawing.Size(178, 48);
             this.ED_Staff.TabIndex = 19;
             this.ED_Staff.Text = "Edit";
             this.ED_Staff.UseVisualStyleBackColor = true;
@@ -170,9 +181,9 @@
             // GETSTAFF_DATA
             // 
             this.GETSTAFF_DATA.Enabled = false;
-            this.GETSTAFF_DATA.Location = new System.Drawing.Point(23, 354);
+            this.GETSTAFF_DATA.Location = new System.Drawing.Point(23, 339);
             this.GETSTAFF_DATA.Name = "GETSTAFF_DATA";
-            this.GETSTAFF_DATA.Size = new System.Drawing.Size(167, 33);
+            this.GETSTAFF_DATA.Size = new System.Drawing.Size(178, 48);
             this.GETSTAFF_DATA.TabIndex = 18;
             this.GETSTAFF_DATA.Text = "GetData";
             this.GETSTAFF_DATA.UseVisualStyleBackColor = true;
@@ -181,9 +192,9 @@
             // Rm_Staff
             // 
             this.Rm_Staff.Enabled = false;
-            this.Rm_Staff.Location = new System.Drawing.Point(249, 315);
+            this.Rm_Staff.Location = new System.Drawing.Point(249, 284);
             this.Rm_Staff.Name = "Rm_Staff";
-            this.Rm_Staff.Size = new System.Drawing.Size(167, 33);
+            this.Rm_Staff.Size = new System.Drawing.Size(178, 48);
             this.Rm_Staff.TabIndex = 17;
             this.Rm_Staff.Text = "Remove Staff";
             this.Rm_Staff.UseVisualStyleBackColor = true;
@@ -192,9 +203,9 @@
             // Add_Staff
             // 
             this.Add_Staff.Enabled = false;
-            this.Add_Staff.Location = new System.Drawing.Point(23, 315);
+            this.Add_Staff.Location = new System.Drawing.Point(23, 284);
             this.Add_Staff.Name = "Add_Staff";
-            this.Add_Staff.Size = new System.Drawing.Size(167, 33);
+            this.Add_Staff.Size = new System.Drawing.Size(178, 48);
             this.Add_Staff.TabIndex = 16;
             this.Add_Staff.Text = "Add Staff";
             this.Add_Staff.UseVisualStyleBackColor = true;
@@ -409,7 +420,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.RF_DATA);
             this.tabPage1.Controls.Add(this.GET_DATA);
             this.tabPage1.Controls.Add(this.RS_PWD);
             this.tabPage1.Controls.Add(this.acptb3);
@@ -424,21 +434,11 @@
             this.tabPage1.Text = "ResetPassword";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // RF_DATA
-            // 
-            this.RF_DATA.Location = new System.Drawing.Point(28, 286);
-            this.RF_DATA.Name = "RF_DATA";
-            this.RF_DATA.Size = new System.Drawing.Size(392, 29);
-            this.RF_DATA.TabIndex = 8;
-            this.RF_DATA.Text = "Refresh";
-            this.RF_DATA.UseVisualStyleBackColor = true;
-            this.RF_DATA.Click += new System.EventHandler(this.RF_DATA_Click);
-            // 
             // GET_DATA
             // 
-            this.GET_DATA.Location = new System.Drawing.Point(28, 216);
+            this.GET_DATA.Location = new System.Drawing.Point(28, 228);
             this.GET_DATA.Name = "GET_DATA";
-            this.GET_DATA.Size = new System.Drawing.Size(392, 29);
+            this.GET_DATA.Size = new System.Drawing.Size(392, 71);
             this.GET_DATA.TabIndex = 7;
             this.GET_DATA.Text = "GetData";
             this.GET_DATA.UseVisualStyleBackColor = true;
@@ -446,9 +446,9 @@
             // 
             // RS_PWD
             // 
-            this.RS_PWD.Location = new System.Drawing.Point(28, 251);
+            this.RS_PWD.Location = new System.Drawing.Point(28, 305);
             this.RS_PWD.Name = "RS_PWD";
-            this.RS_PWD.Size = new System.Drawing.Size(392, 29);
+            this.RS_PWD.Size = new System.Drawing.Size(392, 71);
             this.RS_PWD.TabIndex = 6;
             this.RS_PWD.Text = "Reset Password";
             this.RS_PWD.UseVisualStyleBackColor = true;
@@ -516,7 +516,14 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.panel1);
             this.tabPage3.Controls.Add(this.BINDSTAFF);
+            this.tabPage3.Controls.Add(this.textBox11);
+            this.tabPage3.Controls.Add(this.textBox10);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label7);
             this.tabPage3.Controls.Add(this.textBox9);
             this.tabPage3.Controls.Add(this.textBox8);
             this.tabPage3.Controls.Add(this.textBox7);
@@ -528,6 +535,148 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "BindingAccount";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(38, 211);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Position";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButton7);
+            this.panel1.Controls.Add(this.radioButton6);
+            this.panel1.Controls.Add(this.radioButton5);
+            this.panel1.Controls.Add(this.radioButton4);
+            this.panel1.Location = new System.Drawing.Point(41, 227);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(306, 65);
+            this.panel1.TabIndex = 12;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(157, 45);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(82, 17);
+            this.radioButton7.TabIndex = 3;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "OfflineRetail";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            this.radioButton7.CheckedChanged += new System.EventHandler(this.RadioButton7_CheckedChanged);
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(157, 4);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(82, 17);
+            this.radioButton6.TabIndex = 2;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "OnlineRetail";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            this.radioButton6.CheckedChanged += new System.EventHandler(this.RadioButton6_CheckedChanged);
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(4, 45);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(61, 17);
+            this.radioButton5.TabIndex = 1;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Manger";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            this.radioButton5.CheckedChanged += new System.EventHandler(this.RadioButton5_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(4, 4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(54, 17);
+            this.radioButton4.TabIndex = 0;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Admin";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.RadioButton4_CheckedChanged);
+            // 
+            // BINDSTAFF
+            // 
+            this.BINDSTAFF.Location = new System.Drawing.Point(41, 298);
+            this.BINDSTAFF.Name = "BINDSTAFF";
+            this.BINDSTAFF.Size = new System.Drawing.Size(309, 86);
+            this.BINDSTAFF.TabIndex = 6;
+            this.BINDSTAFF.Text = "BindAccount";
+            this.BINDSTAFF.UseVisualStyleBackColor = true;
+            this.BINDSTAFF.Click += new System.EventHandler(this.BINDSTAFF_Click);
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(198, 298);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 11;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(92, 298);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 10;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(38, 158);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Re-enter Password";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(38, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Password";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(38, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Username";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(38, 174);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.PasswordChar = '●';
+            this.textBox9.Size = new System.Drawing.Size(309, 20);
+            this.textBox9.TabIndex = 5;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(38, 121);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.PasswordChar = '●';
+            this.textBox8.Size = new System.Drawing.Size(309, 20);
+            this.textBox8.TabIndex = 4;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(38, 69);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(309, 20);
+            this.textBox7.TabIndex = 3;
             // 
             // ARS2_DGV
             // 
@@ -593,36 +742,6 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(38, 32);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(309, 20);
-            this.textBox7.TabIndex = 3;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(38, 84);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(309, 20);
-            this.textBox8.TabIndex = 4;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(38, 137);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(309, 20);
-            this.textBox9.TabIndex = 5;
-            // 
-            // BINDSTAFF
-            // 
-            this.BINDSTAFF.Location = new System.Drawing.Point(38, 235);
-            this.BINDSTAFF.Name = "BINDSTAFF";
-            this.BINDSTAFF.Size = new System.Drawing.Size(309, 86);
-            this.BINDSTAFF.TabIndex = 6;
-            this.BINDSTAFF.Text = "BindAccount";
-            this.BINDSTAFF.UseVisualStyleBackColor = true;
-            // 
             // ACP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,6 +760,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.RS_PWD_DGV)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARS2_DGV)).EndInit();
             this.ResumeLayout(false);
 
@@ -662,7 +783,6 @@
         private System.Windows.Forms.TextBox acptb1;
         private System.Windows.Forms.Button GET_DATA;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button RF_DATA;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
@@ -704,5 +824,16 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label10;
     }
 }
