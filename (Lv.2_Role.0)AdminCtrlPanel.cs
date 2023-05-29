@@ -34,108 +34,131 @@ namespace MikuRetailPro
 
         public void InitDataToRSPWD_DGV()
         {
-            RS_PWD_DGV.Rows.Clear();
-
-            using (SqlCommand command = connection.CreateCommand())
+            try
             {
-                command.CommandText = "SELECT username, id, role FROM user_account";
-                using (SqlDataReader reader = command.ExecuteReader())
+                RS_PWD_DGV.Rows.Clear();
+
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    while (reader.Read())
+                    command.CommandText = "SELECT username, id, role FROM user_account";
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        List<object> rowValues = new List<object>();
-
-                        for (int i = 0; i < reader.FieldCount; i++)
+                        while (reader.Read())
                         {
-                            rowValues.Add(reader.GetValue(i));
+                            List<object> rowValues = new List<object>();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                rowValues.Add(reader.GetValue(i));
+                            }
+
+                            int roleIndex = reader.GetOrdinal("role"); // Get the index of the "role" column
+                            string roleValue = reader.GetString(roleIndex); // Get the value of the "role" column as a string
+
+                            if (roleValue.Trim() == "Admin") // Skip rows with role = "Admin"
+                            {
+                                continue; // Skip adding the row but continue with the next iteration
+                            }
+
+                            RS_PWD_DGV.Rows.Add(rowValues.ToArray());
                         }
-
-                        int roleIndex = reader.GetOrdinal("role"); // Get the index of the "role" column
-                        string roleValue = reader.GetString(roleIndex); // Get the value of the "role" column as a string
-
-                        if (roleValue.Trim() == "Admin") // Skip rows with role = "Admin"
-                        {
-                            continue; // Skip adding the row but continue with the next iteration
-                        }
-
-                        RS_PWD_DGV.Rows.Add(rowValues.ToArray());
+                        reader.Close();
                     }
-                    reader.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or log the error
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
 
+
         public void InitDataToARS_DGV()
         {
-            ARS_DGV.Rows.Clear();
-
-            using (SqlCommand command = connection.CreateCommand())
+            try
             {
-                command.CommandText = "SELECT id, name, age, hometown, gender, contact, citizenid FROM user_profile";
-                using (SqlDataReader reader = command.ExecuteReader())
+                ARS_DGV.Rows.Clear();
+
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    while (reader.Read())
+                    command.CommandText = "SELECT id, name, age, hometown, gender, contact, citizenid FROM user_profile";
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        List<object> rowValues = new List<object>();
-
-                        for (int i = 0; i < reader.FieldCount; i++)
+                        while (reader.Read())
                         {
-                            rowValues.Add(reader.GetValue(i));
+                            List<object> rowValues = new List<object>();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                rowValues.Add(reader.GetValue(i));
+                            }
+
+                            int idIndex = reader.GetOrdinal("id"); // Get the index of the "id" column
+                            int idValue = reader.GetInt32(idIndex); // Get the value of the "id" column as an int
+
+                            bool isAdmin = IsThatAdmin(idValue); // Check if the user has an "Admin" role
+
+                            if (isAdmin)
+                            {
+                                continue; // Skip adding the row but continue with the next iteration
+                            }
+
+                            ARS_DGV.Rows.Add(rowValues.ToArray());
                         }
 
-                        int idIndex = reader.GetOrdinal("id"); // Get the index of the "id" column
-                        int idValue = reader.GetInt32(idIndex); // Get the value of the "id" column as an int
-
-                        bool isAdmin = IsThatAdmin(idValue); // Check if the user has an "Admin" role
-
-                        if (isAdmin)
-                        {
-                            continue; // Skip adding the row but continue with the next iteration
-                        }
-
-                        ARS_DGV.Rows.Add(rowValues.ToArray());
+                        reader.Close();
                     }
-
-                    // Close the SqlDataReader after reading all the rows
-                    reader.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or log the error
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
 
         public void InitDataToARS2_DGV()
         {
-            ARS2_DGV.Rows.Clear();
-
-            using (SqlCommand command = connection.CreateCommand())
+            try
             {
-                command.CommandText = "SELECT id, name, age, hometown, gender, contact, citizenid FROM user_profile";
-                using (SqlDataReader reader = command.ExecuteReader())
+                ARS2_DGV.Rows.Clear();
+
+                using (SqlCommand command = connection.CreateCommand())
                 {
-                    while (reader.Read())
+                    command.CommandText = "SELECT id, name, age, hometown, gender, contact, citizenid FROM user_profile";
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        List<object> rowValues = new List<object>();
-
-                        for (int i = 0; i < reader.FieldCount; i++)
+                        while (reader.Read())
                         {
-                            rowValues.Add(reader.GetValue(i));
+                            List<object> rowValues = new List<object>();
+
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                rowValues.Add(reader.GetValue(i));
+                            }
+
+                            int idIndex = reader.GetOrdinal("id"); // Get the index of the "id" column
+                            int idValue = reader.GetInt32(idIndex); // Get the value of the "id" column as an int
+
+                            bool isAccountYet = IsAccountYet(idValue); // Check if the user account exists
+
+                            if (isAccountYet)
+                            {
+                                continue; // Skip adding the row but continue with the next iteration
+                            }
+
+                            ARS2_DGV.Rows.Add(rowValues.ToArray());
                         }
 
-                        int idIndex = reader.GetOrdinal("id"); // Get the index of the "id" column
-                        int idValue = reader.GetInt32(idIndex); // Get the value of the "id" column as an int
-
-                        bool isAdmin = IsAccountYet(idValue); // Check if the user has an "Admin" role
-
-                        if (isAdmin)
-                        {
-                            continue; // Skip adding the row but continue with the next iteration
-                        }
-
-                        ARS2_DGV.Rows.Add(rowValues.ToArray());
+                        reader.Close();
                     }
-
-                    // Close the SqlDataReader after reading all the rows
-                    reader.Close();
                 }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or log the error
+                Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
 
@@ -510,7 +533,11 @@ namespace MikuRetailPro
 
         private void BINDSTAFF_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(textBox10.Text))
+            {
+                MessageBox.Show("Please select a Profile.");
+                return;
+            }
             textBox10.Text = ARS2_DGV.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
             try
             {
@@ -524,7 +551,7 @@ namespace MikuRetailPro
                 // Check if any of the textboxes are empty
                 if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(rpassword))
                 {
-                    MessageBox.Show("Please fill in all fields.");
+                    MessageBox.Show("Please fill in all fields.");     
                     return;
                 }
                 if ( password != rpassword)

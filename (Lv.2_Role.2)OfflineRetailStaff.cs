@@ -13,7 +13,7 @@ namespace MikuRetailPro
 {
     public partial class OffRS : Form
     {
-        public OffRS(SqlConnection connection)
+        public OffRS(SqlConnection connection, string currentuser)
         {
             InitializeComponent();
         }

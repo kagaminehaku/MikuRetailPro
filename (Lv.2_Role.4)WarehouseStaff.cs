@@ -13,7 +13,7 @@ namespace MikuRetailPro
 {
     public partial class WHS : Form
     {
-        public WHS(SqlConnection connection)
+        public WHS(SqlConnection connection,string currentuser)
         {
             InitializeComponent();
         }

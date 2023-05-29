@@ -13,9 +13,10 @@ namespace MikuRetailPro
 {
     public partial class OnRS : Form
     {
-        public OnRS(SqlConnection connection)
+        public OnRS(SqlConnection connection,string currentuser)
         {
             InitializeComponent();
         }
+        
     }
 }

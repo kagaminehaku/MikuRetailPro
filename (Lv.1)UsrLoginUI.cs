@@ -34,6 +34,7 @@ namespace MikuRetailPro
                     command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password);
                     SqlDataReader reader = command.ExecuteReader();
+                    string currentuser = usntxb.Text;
                     usntxb.Text = "";  
                     pwdtxb.Text = ""; 
                     if (reader.Read())
@@ -41,7 +42,7 @@ namespace MikuRetailPro
                         string role = reader["role"].ToString();
                         if (role.Trim() == "Admin") 
                         {
-                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            MessageBox.Show("Login successful!\nHave a nice day Admin!");
                             reader.Close();
                             this.Hide();
                             ACP acp = new ACP(connection);
@@ -50,37 +51,37 @@ namespace MikuRetailPro
                         }
                         if (role.Trim() == "Manager") 
                         {
-                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            MessageBox.Show("Login successful!\nHave a nice day Manager!");
                             reader.Close();
                             this.Hide();
-                            MGR mgr = new MGR(connection);
+                            MGR mgr = new MGR(connection, currentuser);
                             mgr.ShowDialog();
                             this.Show();
                         }
                         if (role.Trim() == "OffRS")
                         {
-                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            MessageBox.Show("Login successful!\nHave a nice day Staff!");
                             reader.Close();
                             this.Hide();
-                            OffRS offrs = new OffRS(connection);
+                            OffRS offrs = new OffRS(connection, currentuser);
                             offrs.ShowDialog();
                             this.Show();
                         }
                         if (role.Trim() == "OnRS")
                         {
-                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            MessageBox.Show("Login successful!\nHave a nice day Staff!");
                             reader.Close();
                             this.Hide();
-                            OnRS onrs = new OnRS(connection);
+                            OnRS onrs = new OnRS(connection, currentuser);
                             onrs.ShowDialog();
                             this.Show();
                         }
                         if (role.Trim() == "WHS")
                         {
-                            MessageBox.Show("Login successful!\nHave a nice day!");
+                            MessageBox.Show("Login successful!\nHave a nice day Worker!");
                             reader.Close();
                             this.Hide();
-                            WHS whs = new WHS(connection);
+                            WHS whs = new WHS(connection, currentuser);
                             whs.ShowDialog();
                             this.Show();
                         }
