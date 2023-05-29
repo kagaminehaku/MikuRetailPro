@@ -52,12 +52,12 @@ namespace MikuRetailPro
                                 rowValues.Add(reader.GetValue(i));
                             }
 
-                            int roleIndex = reader.GetOrdinal("role"); // Get the index of the "role" column
-                            string roleValue = reader.GetString(roleIndex); // Get the value of the "role" column as a string
+                            int roleIndex = reader.GetOrdinal("role"); 
+                            string roleValue = reader.GetString(roleIndex); 
 
-                            if (roleValue.Trim() == "Admin") // Skip rows with role = "Admin"
+                            if (roleValue.Trim() == "Admin") 
                             {
-                                continue; // Skip adding the row but continue with the next iteration
+                                continue; 
                             }
 
                             RS_PWD_DGV.Rows.Add(rowValues.ToArray());
@@ -68,7 +68,6 @@ namespace MikuRetailPro
             }
             catch (Exception ex)
             {
-                // Handle the exception or log the error
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
@@ -94,14 +93,14 @@ namespace MikuRetailPro
                                 rowValues.Add(reader.GetValue(i));
                             }
 
-                            int idIndex = reader.GetOrdinal("id"); // Get the index of the "id" column
-                            int idValue = reader.GetInt32(idIndex); // Get the value of the "id" column as an int
+                            int idIndex = reader.GetOrdinal("id"); 
+                            int idValue = reader.GetInt32(idIndex); 
 
-                            bool isAdmin = IsThatAdmin(idValue); // Check if the user has an "Admin" role
+                            bool isAdmin = IsThatAdmin(idValue); 
 
                             if (isAdmin)
                             {
-                                continue; // Skip adding the row but continue with the next iteration
+                                continue; 
                             }
 
                             ARS_DGV.Rows.Add(rowValues.ToArray());
@@ -113,7 +112,6 @@ namespace MikuRetailPro
             }
             catch (Exception ex)
             {
-                // Handle the exception or log the error
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
@@ -138,14 +136,13 @@ namespace MikuRetailPro
                                 rowValues.Add(reader.GetValue(i));
                             }
 
-                            int idIndex = reader.GetOrdinal("id"); // Get the index of the "id" column
-                            int idValue = reader.GetInt32(idIndex); // Get the value of the "id" column as an int
-
-                            bool isAccountYet = IsAccountYet(idValue); // Check if the user account exists
+                            int idIndex = reader.GetOrdinal("id"); 
+                            int idValue = reader.GetInt32(idIndex); 
+                            bool isAccountYet = IsAccountYet(idValue); 
 
                             if (isAccountYet)
                             {
-                                continue; // Skip adding the row but continue with the next iteration
+                                continue; 
                             }
 
                             ARS2_DGV.Rows.Add(rowValues.ToArray());
@@ -157,7 +154,6 @@ namespace MikuRetailPro
             }
             catch (Exception ex)
             {
-                // Handle the exception or log the error
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
         }
@@ -169,8 +165,8 @@ namespace MikuRetailPro
                 command.CommandText = "SELECT role FROM user_account WHERE id = @userId";
                 command.Parameters.AddWithValue("@userId", userId);
                 object result = command.ExecuteScalar();
-                string role = result?.ToString(); // Null check before calling ToString()
-                return (role != null && role.Trim() == "Admin"); // Check for null and then compare role
+                string role = result?.ToString(); 
+                return (role != null && role.Trim() == "Admin"); 
             }
         }
 
@@ -197,7 +193,6 @@ namespace MikuRetailPro
         {
             using (var form = new System.Windows.Forms.Form { Text = "Change Password", StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen })
             {
-                // Set the form icon
                 form.Icon = this.Icon;
 
                 using (var textBox = new System.Windows.Forms.TextBox { PasswordChar = '*', Location = new System.Drawing.Point(10, 45), Size = new System.Drawing.Size(200, 20) })
@@ -363,7 +358,6 @@ namespace MikuRetailPro
                 string contact = textBox5.Text;
                 string citizenId = textBox6.Text;
 
-                // Check if any of the textboxes are empty
                 if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(age) || string.IsNullOrEmpty(hometown)
                     || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(contact) || string.IsNullOrEmpty(citizenId))
                 {
@@ -416,7 +410,6 @@ namespace MikuRetailPro
                 string contact = textBox5.Text;
                 string citizenId = textBox6.Text;
 
-                // Check if any of the textboxes are empty
                 if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(age) || string.IsNullOrEmpty(hometown)
                     || string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(contact) || string.IsNullOrEmpty(citizenId))
                 {
@@ -468,21 +461,18 @@ namespace MikuRetailPro
             {
                 string id = textBox0.Text;
 
-                // Check if the ID is empty
                 if (string.IsNullOrEmpty(id))
                 {
                     MessageBox.Show("Please enter an ID.");
                     return;
                 }
 
-                // Delete record from user_account table first
                 string accountQuery = "DELETE FROM user_account WHERE id = @ID";
                 using (SqlCommand accountCommand = new SqlCommand(accountQuery, connection))
                 {
                     accountCommand.Parameters.AddWithValue("@ID", id);
                     int accountRowsAffected = accountCommand.ExecuteNonQuery();
 
-                    // Delete record from user_profile table
                     string profileQuery = "DELETE FROM user_profile WHERE id = @ID";
                     using (SqlCommand profileCommand = new SqlCommand(profileQuery, connection))
                     {
@@ -548,7 +538,6 @@ namespace MikuRetailPro
                 string role = textBox11.Text;   
 
 
-                // Check if any of the textboxes are empty
                 if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(rpassword))
                 {
                     MessageBox.Show("Please fill in all fields.");     
