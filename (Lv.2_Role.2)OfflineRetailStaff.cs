@@ -118,7 +118,8 @@ namespace MikuRetailPro
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-            button2.Enabled = false;  
+            button2.Enabled = false;
+            dataGridView1.Rows.Clear();
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
