@@ -183,10 +183,10 @@ namespace MikuRetailPro
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            RefreshData();
             acptb1.Text = RS_PWD_DGV.CurrentRow.Cells["username"].Value.ToString();
             acptb2.Text = RS_PWD_DGV.CurrentRow.Cells["id"].Value.ToString();
             acptb3.Text = RS_PWD_DGV.CurrentRow.Cells["role"].Value.ToString();
+            RefreshData();
         }
 
         private string PromptForNewPassword()
