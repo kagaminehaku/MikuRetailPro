@@ -33,6 +33,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
@@ -95,7 +96,6 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ACPTabs = new System.Windows.Forms.TabControl();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARS2_DGV)).BeginInit();
@@ -148,6 +148,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(336, 65);
             this.panel1.TabIndex = 12;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(199, 4);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(102, 17);
+            this.radioButton8.TabIndex = 4;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "WarehouseStaff";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
             // 
             // radioButton7
             // 
@@ -224,6 +236,7 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(38, 174);
+            this.textBox9.MaxLength = 64;
             this.textBox9.Name = "textBox9";
             this.textBox9.PasswordChar = '●';
             this.textBox9.Size = new System.Drawing.Size(309, 20);
@@ -232,6 +245,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(38, 121);
+            this.textBox8.MaxLength = 64;
             this.textBox8.Name = "textBox8";
             this.textBox8.PasswordChar = '●';
             this.textBox8.Size = new System.Drawing.Size(309, 20);
@@ -240,6 +254,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(38, 69);
+            this.textBox7.MaxLength = 64;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(309, 20);
             this.textBox7.TabIndex = 3;
@@ -374,11 +389,13 @@
             this.textBox0.Name = "textBox0";
             this.textBox0.Size = new System.Drawing.Size(393, 20);
             this.textBox0.TabIndex = 22;
+            this.textBox0.Text = " ";
             // 
             // textBox6
             // 
             this.textBox6.Enabled = false;
             this.textBox6.Location = new System.Drawing.Point(23, 205);
+            this.textBox6.MaxLength = 128;
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(393, 20);
             this.textBox6.TabIndex = 7;
@@ -387,14 +404,17 @@
             // 
             this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(23, 244);
+            this.textBox5.MaxLength = 20;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(393, 20);
             this.textBox5.TabIndex = 6;
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // textBox4
             // 
             this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(23, 166);
+            this.textBox4.MaxLength = 10;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(167, 20);
             this.textBox4.TabIndex = 5;
@@ -411,6 +431,7 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(23, 127);
+            this.textBox2.MaxLength = 128;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(393, 20);
             this.textBox2.TabIndex = 3;
@@ -419,6 +440,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(23, 88);
+            this.textBox1.MaxLength = 64;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(393, 20);
             this.textBox1.TabIndex = 2;
@@ -743,18 +765,6 @@
             this.ACPTabs.SelectedIndex = 0;
             this.ACPTabs.Size = new System.Drawing.Size(776, 426);
             this.ACPTabs.TabIndex = 0;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(199, 4);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(102, 17);
-            this.radioButton8.TabIndex = 4;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "WarehouseStaff";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            this.radioButton8.CheckedChanged += new System.EventHandler(this.radioButton8_CheckedChanged);
             // 
             // ACP
             // 

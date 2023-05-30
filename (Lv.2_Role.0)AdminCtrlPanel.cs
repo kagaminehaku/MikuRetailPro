@@ -566,7 +566,7 @@ namespace MikuRetailPro
                     MessageBox.Show("Password does not match.");
                     return;
                 }
-                if (password.Length < 9)
+                if (password.Length < 8)
                 {
                     MessageBox.Show("Password not long enough (>8 characters).");
                     return;
@@ -624,6 +624,14 @@ namespace MikuRetailPro
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
             textBox11.Text = "WHS";
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
