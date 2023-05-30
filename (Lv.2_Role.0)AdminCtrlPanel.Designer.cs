@@ -211,7 +211,7 @@
             // 
             // BINDSTAFF
             // 
-            this.BINDSTAFF.Location = new System.Drawing.Point(38, 298);
+            this.BINDSTAFF.Location = new System.Drawing.Point(41, 295);
             this.BINDSTAFF.Name = "BINDSTAFF";
             this.BINDSTAFF.Size = new System.Drawing.Size(309, 86);
             this.BINDSTAFF.TabIndex = 6;

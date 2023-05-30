@@ -102,6 +102,27 @@ namespace MikuRetailPro
                 int id = FindCurrentId();
                 id++;
                 int cuid = id;
+                string query2 = "INSERT INTO customer_online (cuid, name, address, phonenumber) " +
+                            "VALUES (@Cuid, @Name, @Address, @PhoneNumber)";
+
+                using (SqlCommand command = new SqlCommand(query2, connection))
+                {
+                    command.Parameters.AddWithValue("@Cuid", cuid);
+                    command.Parameters.AddWithValue("@Name", namecus);
+                    command.Parameters.AddWithValue("@Address", addresscus);
+                    command.Parameters.AddWithValue("@PhoneNumber", phoneNumbercus);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Customer data push ok!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to push customer data.");
+                    }
+                }
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     string name = row.Cells["name"].Value.ToString();
@@ -130,27 +151,6 @@ namespace MikuRetailPro
                         {
                             MessageBox.Show("Order push failed.");
                         }
-                    }
-                }
-                string query2 = "INSERT INTO customer_online (cuid, name, address, phonenumber) " +
-                            "VALUES (@Cuid, @Name, @Address, @PhoneNumber)";
-
-                using (SqlCommand command = new SqlCommand(query2, connection))
-                {
-                    command.Parameters.AddWithValue("@Cuid", cuid);
-                    command.Parameters.AddWithValue("@Name", namecus);
-                    command.Parameters.AddWithValue("@Address", addresscus);
-                    command.Parameters.AddWithValue("@PhoneNumber", phoneNumbercus);
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Customer data push ok!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to push customer data.");
                     }
                 }
             }

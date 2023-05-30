@@ -62,8 +62,12 @@ namespace MikuRetailPro
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if( DGV1.Rows.Count == 0 )    
+            {
+                MessageBox.Show("No Data.");
+                return;
+            }
             int cuid = Convert.ToInt32(DGV1.CurrentRow.Cells["cuid"].Value);
-
             try
             {
                 string query = "SELECT name, price, quantity FROM online_order WHERE id = @Cuid";
@@ -91,6 +95,11 @@ namespace MikuRetailPro
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (DGV2.Rows.Count == 0)
+            {
+                MessageBox.Show("No Data.");
+                return;
+            }
             int cuid = Convert.ToInt32(DGV1.CurrentRow.Cells["cuid"].Value);
             try
             {
