@@ -105,7 +105,7 @@ namespace MikuRetailPro
 
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Data inserted successfully!");
+                            MessageBox.Show("Push order successfully!");
                         }
                         else
                         {

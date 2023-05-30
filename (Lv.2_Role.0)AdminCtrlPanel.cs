@@ -521,13 +521,28 @@ namespace MikuRetailPro
             RefreshData();
         }
 
+        private bool IsDuplicateUsername(string username)
+        {
+            bool isDuplicate = false;
+            string query = "SELECT COUNT(*) FROM user_account WHERE username = @Username";
+
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Username", username);
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                if (count > 0)
+                {
+                    isDuplicate = true;
+                }
+            }
+
+            return isDuplicate;
+        }
+
+
         private void BINDSTAFF_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox10.Text))
-            {
-                MessageBox.Show("Please select a Profile.");
-                return;
-            }
             textBox10.Text = ARS2_DGV.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
             try
             {
@@ -535,9 +550,12 @@ namespace MikuRetailPro
                 string password = textBox8.Text;
                 string rpassword = textBox9.Text;
                 string id = textBox10.Text;
-                string role = textBox11.Text;   
-
-
+                string role = textBox11.Text;
+                if (IsDuplicateUsername(username))
+                {
+                    MessageBox.Show("Username Duplicate,Please pick another.");
+                    return;
+                }
                 if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(rpassword))
                 {
                     MessageBox.Show("Please fill in all fields.");     
@@ -548,7 +566,7 @@ namespace MikuRetailPro
                     MessageBox.Show("Password does not match.");
                     return;
                 }
-                if (password.Length <= 8)
+                if (password.Length < 9)
                 {
                     MessageBox.Show("Password not long enough (>8 characters).");
                     return;
@@ -601,6 +619,11 @@ namespace MikuRetailPro
         private void RadioButton7_CheckedChanged(object sender, EventArgs e)
         {
             textBox11.Text = "OffRS";
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox11.Text = "WHS";
         }
     }
 }
