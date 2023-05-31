@@ -543,6 +543,11 @@ namespace MikuRetailPro
 
         private void BINDSTAFF_Click(object sender, EventArgs e)
         {
+            if (ARS2_DGV.Rows.Count == 0)
+            {
+                MessageBox.Show("No Data.");
+                return;
+            }
             textBox10.Text = ARS2_DGV.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
             try
             {
@@ -632,6 +637,11 @@ namespace MikuRetailPro
             {
                 e.Handled = true;
             }
+        }
+
+        private void ACP_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

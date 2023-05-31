@@ -48,7 +48,6 @@ namespace MikuRetailPro
 
         public void InitCurrentForm()
         {
-            button2.Enabled = false;
             textBox1.Text = string.Empty;
             textBox2.Text = string.Empty;
             textBox3.Text = string.Empty;
@@ -95,7 +94,11 @@ namespace MikuRetailPro
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No Data.");
+                return;
+            }
             try
             {
                 (string namecus, string addresscus, string phoneNumbercus) = OpenInputCustomerInfoForm();

@@ -775,6 +775,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ACP";
             this.Text = "NovaRetail-AdminControlPanel";
+            this.Load += new System.EventHandler(this.ACP_Load);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.panel1.ResumeLayout(false);
