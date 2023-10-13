@@ -540,7 +540,7 @@ namespace MikuRetailPro
             return isDuplicate;
         }
 
-
+        private string rolechoice;
         private void BINDSTAFF_Click(object sender, EventArgs e)
         {
             if (ARS2_DGV.Rows.Count == 0)
@@ -548,14 +548,13 @@ namespace MikuRetailPro
                 MessageBox.Show("No Data.");
                 return;
             }
-            textBox10.Text = ARS2_DGV.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
             try
             {
                 string username = textBox7.Text;
                 string password = textBox8.Text;
                 string rpassword = textBox9.Text;
-                string id = textBox10.Text;
-                string role = textBox11.Text;
+                string id = ARS2_DGV.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
+                string role = rolechoice;
                 if (IsDuplicateUsername(username))
                 {
                     MessageBox.Show("Username Duplicate,Please pick another.");
@@ -608,27 +607,27 @@ namespace MikuRetailPro
 
         private void RadioButton4_CheckedChanged(object sender, EventArgs e)
         {
-            textBox11.Text = "Admin";
+            rolechoice = "Admin";
         }
 
         private void RadioButton6_CheckedChanged(object sender, EventArgs e)
         {
-            textBox11.Text = "OnRS";
+            rolechoice = "OnRS";
         }
 
         private void RadioButton5_CheckedChanged(object sender, EventArgs e)
         {
-            textBox11.Text = "Manager";
+            rolechoice = "Manager";
         }
 
         private void RadioButton7_CheckedChanged(object sender, EventArgs e)
         {
-            textBox11.Text = "OffRS";
+            rolechoice = "OffRS";
         }
 
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
         {
-            textBox11.Text = "WHS";
+            rolechoice = "WHS";
         }
 
         private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
