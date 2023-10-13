@@ -20,6 +20,8 @@ namespace MikuRetailPro
             InitializeComponent();
 
         }
+
+        protected string ConnectString = "Data Source=.;Initial Catalog=Nova_Retail;Integrated Security=True;MultipleActiveResultSets=True";
         private void Loginusrbtn_Click(object sender, EventArgs e)
         {
             {
@@ -28,7 +30,7 @@ namespace MikuRetailPro
                 SqlConnection connection = null;
                 try
                 {
-                    connection = new SqlConnection("Data Source=.;Initial Catalog=Nova_Retail;Integrated Security=True;MultipleActiveResultSets=True");
+                    connection = new SqlConnection(ConnectString);
                     connection.Open();
                     SqlCommand command = new SqlCommand("SELECT * FROM [user_account] WHERE username=@username AND password=@password", connection);
                     command.Parameters.AddWithValue("@username", username);

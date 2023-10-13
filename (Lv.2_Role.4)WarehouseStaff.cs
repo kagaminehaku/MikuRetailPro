@@ -57,7 +57,6 @@ namespace MikuRetailPro
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-            DGV1.Rows.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)

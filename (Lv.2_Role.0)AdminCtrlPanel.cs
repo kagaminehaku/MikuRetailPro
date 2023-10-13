@@ -273,14 +273,14 @@ namespace MikuRetailPro
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
-            textBox4.Enabled = true;
+            comboBox1.Enabled = true;
             textBox5.Enabled = true;
             textBox6.Enabled = true;
             textBox0.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
-            textBox4.Text = "";
+            comboBox1.SelectedIndex = 0;
             textBox5.Text = "";
             textBox6.Text = "";
             Add_Staff.Enabled = true;
@@ -302,14 +302,14 @@ namespace MikuRetailPro
             textBox1.Enabled = false;
             textBox2.Enabled = false;
             textBox3.Enabled = false;
-            textBox4.Enabled = false;
+            comboBox1.Enabled = false;
             textBox5.Enabled = false;
             textBox6.Enabled = false;
             textBox0.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
-            textBox4.Text = "";
+            comboBox1 .SelectedIndex = 0;
             textBox5.Text = "";
             textBox6.Text = "";
             Add_Staff.Enabled = false;
@@ -331,14 +331,14 @@ namespace MikuRetailPro
             textBox1.Enabled = true;
             textBox2.Enabled = true;
             textBox3.Enabled = true;
-            textBox4.Enabled = true;
+            comboBox1.Enabled = true;
             textBox5.Enabled = true;
             textBox6.Enabled = true;
             textBox0.Text = "";
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
-            textBox4.Text = "";
+            comboBox1.SelectedIndex = 0;
             textBox5.Text = "";
             textBox6.Text = "";
             Add_Staff.Enabled = false;
@@ -354,7 +354,7 @@ namespace MikuRetailPro
                 string name = textBox1.Text;
                 string age = textBox2.Text;
                 string hometown = textBox3.Text;
-                string gender = textBox4.Text;
+                string gender = comboBox1.Text;
                 string contact = textBox5.Text;
                 string citizenId = textBox6.Text;
 
@@ -406,7 +406,7 @@ namespace MikuRetailPro
                 string name = textBox1.Text;
                 string age = textBox2.Text;
                 string hometown = textBox3.Text;
-                string gender = textBox4.Text;
+                string gender = comboBox1.Text;
                 string contact = textBox5.Text;
                 string citizenId = textBox6.Text;
 
@@ -515,7 +515,7 @@ namespace MikuRetailPro
             textBox1.Text = ARS_DGV.CurrentRow.Cells["name1"].Value.ToString();
             textBox3.Text = ARS_DGV.CurrentRow.Cells["age1"].Value.ToString();
             textBox2.Text = ARS_DGV.CurrentRow.Cells["hometown1"].Value.ToString();
-            textBox4.Text = ARS_DGV.CurrentRow.Cells["gender1"].Value.ToString();
+            comboBox1.Text = ARS_DGV.CurrentRow.Cells["gender1"].Value.ToString();
             textBox5.Text = ARS_DGV.CurrentRow.Cells["contact1"].Value.ToString();
             textBox6.Text = ARS_DGV.CurrentRow.Cells["citizenid1"].Value.ToString();
             RefreshData();
@@ -541,6 +541,13 @@ namespace MikuRetailPro
         }
 
         private string rolechoice;
+
+        private void AccountBindingComp()
+        {
+            textBox7.Text = null;
+            textBox8.Text = null;
+            textBox9.Text = null;
+        }
         private void BINDSTAFF_Click(object sender, EventArgs e)
         {
             if (ARS2_DGV.Rows.Count == 0)
@@ -555,6 +562,7 @@ namespace MikuRetailPro
                 string rpassword = textBox9.Text;
                 string id = ARS2_DGV.CurrentRow.Cells["dataGridViewTextBoxColumn1"].Value.ToString();
                 string role = rolechoice;
+                AccountBindingComp();
                 if (IsDuplicateUsername(username))
                 {
                     MessageBox.Show("Username Duplicate,Please pick another.");

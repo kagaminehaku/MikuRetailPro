@@ -57,7 +57,6 @@
             this.textBox0 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -94,6 +93,7 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ACPTabs = new System.Windows.Forms.TabControl();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ARS2_DGV)).BeginInit();
@@ -334,10 +334,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBox1);
             this.tabPage2.Controls.Add(this.textBox0);
             this.tabPage2.Controls.Add(this.textBox6);
             this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox4);
             this.tabPage2.Controls.Add(this.textBox3);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.textBox1);
@@ -391,15 +391,6 @@
             this.textBox5.Size = new System.Drawing.Size(393, 20);
             this.textBox5.TabIndex = 6;
             this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(23, 166);
-            this.textBox4.MaxLength = 10;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(167, 20);
-            this.textBox4.TabIndex = 5;
             // 
             // textBox3
             // 
@@ -748,6 +739,17 @@
             this.ACPTabs.Size = new System.Drawing.Size(776, 426);
             this.ACPTabs.TabIndex = 0;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.comboBox1.Location = new System.Drawing.Point(23, 166);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(175, 21);
+            this.comboBox1.TabIndex = 23;
+            // 
             // ACP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -802,7 +804,6 @@
         private System.Windows.Forms.TextBox textBox0;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
@@ -840,5 +841,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn role;
         private System.Windows.Forms.TabControl ACPTabs;
         private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
