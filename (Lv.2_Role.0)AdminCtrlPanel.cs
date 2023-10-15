@@ -222,7 +222,7 @@ namespace MikuRetailPro
                 return;
             }
 
-            string newPassword = PromptForNewPassword();
+            string newPassword = UsrLoginUI.EncryptData(PromptForNewPassword());
 
             if (!string.IsNullOrEmpty(newPassword) && newPassword.Length >= 8)
             {

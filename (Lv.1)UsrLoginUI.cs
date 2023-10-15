@@ -21,12 +21,38 @@ namespace MikuRetailPro
 
         }
 
+        public static string EncryptData(string input)
+        {
+            using (SHA512 sha512 = SHA512.Create())
+            {
+
+                string CustomSalt = "LMAO";
+                byte[] saltBytes = Encoding.UTF8.GetBytes(CustomSalt);
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+                byte[] saltedInput = new byte[saltBytes.Length + inputBytes.Length];
+
+                Buffer.BlockCopy(saltBytes, 0, saltedInput, 0, saltBytes.Length);
+                Buffer.BlockCopy(inputBytes, 0, saltedInput, saltBytes.Length, inputBytes.Length);
+
+
+                byte[] hashBytes = sha512.ComputeHash(saltedInput);
+                StringBuilder builder = new StringBuilder();
+
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    builder.Append(hashBytes[i].ToString("x2"));
+                }
+
+                return builder.ToString();
+            }
+        }
+
         protected string ConnectString = "Data Source=.;Initial Catalog=Nova_Retail;Integrated Security=True;MultipleActiveResultSets=True";
         private void Loginusrbtn_Click(object sender, EventArgs e)
         {
             {
                 string username = usntxb.Text;
-                string password = pwdtxb.Text;
+                string password = EncryptData(pwdtxb.Text);
                 SqlConnection connection = null;
                 try
                 {
