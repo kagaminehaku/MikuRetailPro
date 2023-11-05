@@ -84,7 +84,6 @@
             this.contact1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.citizenid1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.GET_DATA = new System.Windows.Forms.Button();
             this.RS_PWD = new System.Windows.Forms.Button();
             this.acptb3 = new System.Windows.Forms.TextBox();
             this.acptb2 = new System.Windows.Forms.TextBox();
@@ -646,7 +645,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.GET_DATA);
             this.tabPage1.Controls.Add(this.RS_PWD);
             this.tabPage1.Controls.Add(this.acptb3);
             this.tabPage1.Controls.Add(this.acptb2);
@@ -660,19 +658,9 @@
             this.tabPage1.Text = "ResetPassword";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // GET_DATA
-            // 
-            this.GET_DATA.Location = new System.Drawing.Point(28, 228);
-            this.GET_DATA.Name = "GET_DATA";
-            this.GET_DATA.Size = new System.Drawing.Size(392, 71);
-            this.GET_DATA.TabIndex = 7;
-            this.GET_DATA.Text = "GetData";
-            this.GET_DATA.UseVisualStyleBackColor = true;
-            this.GET_DATA.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // RS_PWD
             // 
-            this.RS_PWD.Location = new System.Drawing.Point(28, 305);
+            this.RS_PWD.Location = new System.Drawing.Point(35, 278);
             this.RS_PWD.Name = "RS_PWD";
             this.RS_PWD.Size = new System.Drawing.Size(392, 71);
             this.RS_PWD.TabIndex = 6;
@@ -683,7 +671,7 @@
             // acptb3
             // 
             this.acptb3.Enabled = false;
-            this.acptb3.Location = new System.Drawing.Point(28, 166);
+            this.acptb3.Location = new System.Drawing.Point(35, 139);
             this.acptb3.Name = "acptb3";
             this.acptb3.Size = new System.Drawing.Size(392, 20);
             this.acptb3.TabIndex = 3;
@@ -691,7 +679,7 @@
             // acptb2
             // 
             this.acptb2.Enabled = false;
-            this.acptb2.Location = new System.Drawing.Point(28, 111);
+            this.acptb2.Location = new System.Drawing.Point(35, 84);
             this.acptb2.Name = "acptb2";
             this.acptb2.Size = new System.Drawing.Size(392, 20);
             this.acptb2.TabIndex = 2;
@@ -699,7 +687,7 @@
             // acptb1
             // 
             this.acptb1.Enabled = false;
-            this.acptb1.Location = new System.Drawing.Point(28, 63);
+            this.acptb1.Location = new System.Drawing.Point(35, 36);
             this.acptb1.Name = "acptb1";
             this.acptb1.Size = new System.Drawing.Size(392, 20);
             this.acptb1.TabIndex = 1;
@@ -721,6 +709,7 @@
             this.RS_PWD_DGV.ReadOnly = true;
             this.RS_PWD_DGV.Size = new System.Drawing.Size(291, 388);
             this.RS_PWD_DGV.TabIndex = 0;
+            this.RS_PWD_DGV.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.RS_PWD_DGV_RowHeaderMouseClick);
             // 
             // username
             // 
@@ -831,7 +820,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contact1;
         private System.Windows.Forms.DataGridViewTextBoxColumn citizenid1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button GET_DATA;
         private System.Windows.Forms.Button RS_PWD;
         private System.Windows.Forms.TextBox acptb3;
         private System.Windows.Forms.TextBox acptb2;

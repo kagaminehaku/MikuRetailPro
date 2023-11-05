@@ -26,7 +26,7 @@ namespace MikuRetailPro
             using (SHA512 sha512 = SHA512.Create())
             {
 
-                string CustomSalt = "LMAO";
+                string CustomSalt = "";
                 byte[] saltBytes = Encoding.UTF8.GetBytes(CustomSalt);
                 byte[] inputBytes = Encoding.UTF8.GetBytes(input);
                 byte[] saltedInput = new byte[saltBytes.Length + inputBytes.Length];

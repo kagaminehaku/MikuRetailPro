@@ -183,10 +183,7 @@ namespace MikuRetailPro
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            acptb1.Text = RS_PWD_DGV.CurrentRow.Cells["username"].Value.ToString();
-            acptb2.Text = RS_PWD_DGV.CurrentRow.Cells["id"].Value.ToString();
-            acptb3.Text = RS_PWD_DGV.CurrentRow.Cells["role"].Value.ToString();
-            RefreshData();
+            
         }
 
         private string PromptForNewPassword()
@@ -352,8 +349,8 @@ namespace MikuRetailPro
             try
             {
                 string name = textBox1.Text;
-                string age = textBox2.Text;
-                string hometown = textBox3.Text;
+                string age = textBox3.Text;
+                string hometown = textBox2.Text;
                 string gender = comboBox1.Text;
                 string contact = textBox5.Text;
                 string citizenId = textBox6.Text;
@@ -649,6 +646,19 @@ namespace MikuRetailPro
         private void ACP_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void RS_PWD_DGV_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            acptb1.Text = RS_PWD_DGV.CurrentRow.Cells["username"].Value.ToString();
+            acptb2.Text = RS_PWD_DGV.CurrentRow.Cells["id"].Value.ToString();
+            acptb3.Text = RS_PWD_DGV.CurrentRow.Cells["role"].Value.ToString();
+            if (String.IsNullOrEmpty(acptb1.Text) || String.IsNullOrEmpty(acptb2.Text) || String.IsNullOrEmpty(acptb3.Text))
+            {
+                MessageBox.Show("Please Choose Someone");
+                return;
+            }
+            RefreshData();
         }
     }
 }
