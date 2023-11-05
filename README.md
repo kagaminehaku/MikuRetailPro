@@ -1,2 +1,2 @@
 # MikuRetailPro
-C# Homework by me (Garbage Code)
+C# Project by me (Garbage Code)
