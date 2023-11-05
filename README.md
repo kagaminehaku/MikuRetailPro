@@ -1,7 +1,7 @@
 # MikuRetailPro
 C# Project by me (Garbage Code)
 With 4N Technology:
-+No Design
-+No OOP
-+No Entity
-+No Brain
+/n+No Design
+/n+No OOP
+/n+No Entity
+/n+No Brain
